@@ -3,8 +3,8 @@
 This is a Progressive Web App commissioned by UTH as a resource for health care professionals in diagnosing and treating stroke. 
 
 Features include:
-- Audio files for performing neurological interviews/exams with patients who don't speak English. (Scales will include the NIH Stroke Scale and the Modified Rankin Scale.)
-- Rating system/calculator that tallies points to determine stroke severity.
+- Audio files for performing neurological interviews/exams with patients who don't speak English.
+- Rating system/calculator that tallies points to determine stroke severity. (Scales will include the NIH Stroke Scale and the Modified Rankin Scale.)
 - Score report summary from calculator results from both scales that can be saved or shared in a text format via WhatsApp, text, and email.
 - Additional static pages with information for tPA and TNK eligibility criteria and dosing, as well as other miscellaneous information e.g. project team and contact information.
 
