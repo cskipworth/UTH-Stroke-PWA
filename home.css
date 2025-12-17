@@ -1,13 +1,46 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial;
+    background: #f7f9fc; 
+    color: black;
+    font-size: 16px;
+}
+      
+header { 
+    display:flex; 
+    gap:1rem; 
+    align-items:center
+}
+
+.badge {
+    width: 48px;
+    height: 48px;
+}
+
+.small-badge {
+    width: 30px;
+    height: 30px;
+    filter: invert(8%) sepia(61%) saturate(343%) hue-rotate(131deg) brightness(90%) contrast(87%);
+}
+
+.status { 
+    margin-top: 1rem; 
+    color:#2b8a3e 
+}
+
 .topnav {
     background-color: #37547a;
     overflow: hidden;
+    width: 100%;
 }
 
 .topnav a {
     float: left;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 0.8rem 0.9rem;
     text-decoration: none;
     font-size: 17px;
 }
@@ -20,4 +53,44 @@
 .topnav a.active {
     background-color: #8ba0c9;
     color: white;
+}
+
+.title-prompt {
+    border-top: 1px solid white;
+    background-color: #8ba0c9;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    color: rgb(24, 37, 37);
+}
+
+.page-contents {
+    /*border: 2px solid purple;*/
+    display: grid;
+    place-items: center;
+    width: 100%;
+    padding: 2rem 0;
+    row-gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.page-contents div {
+    /*border: 1px solid #17b417;*/
+    display: flex;
+    place-items: center;
+    column-gap: 2rem;
+}
+
+.page-contents div a {
+    /*border: 1px solid black;*/
+    border-radius: 17px;
+    padding: 2rem 2rem;
+    background-color: #37547a;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+.page-contents div a:hover {
+    color: black;
 }
