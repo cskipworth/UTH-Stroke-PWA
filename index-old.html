@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#3367D6" />
+
+    <title>UTH Stroke PWA</title>
+    <link rel="stylesheet" href="./home.css">
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" href="/icons/icon.svg" />
+  </head>
+
+  <body>
+    <div class="title-prompt">
+      <header>
+        <img class="badge" src="../icons/icon.svg" alt="app icon" />
+        <h1>UTHouston: Stroke Diagnostic Resource</h1>
+      </header>
+    </div>
+
+    <main>
+      <p>Now publicly live through GitHub Pages, this is the "landing" / home page, where there will be descriptive information about the app including how to use it, and shortcuts to important or useful tools and pages.</p>
+      <p>Click "Start An Exam" in the top navbar to demo the main flow of this app.</p>
+      <p>Below is some website development troubleshooting information:</p>
+      <div class="status" id="sw-status">Service worker: not registered</div>
+
+      <p>To test locally run a simple HTTP server and open <a href="http://localhost:8080">http://localhost:8080</a>.</p>
+    </main>
+
+    <div class="navbar">
+      <a class="active" href="#home">Home</a>
+      <a href="exams.html">Start An Exam</a>
+      <a href="#cards">NIHSS Cards</a>
+      <a href="#scores">My Saved Scores</a>
+      <a href="#about">About</a>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
