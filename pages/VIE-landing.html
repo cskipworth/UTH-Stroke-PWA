@@ -8,20 +8,12 @@
     <title>UTH Stroke PWA</title>
     <link rel="stylesheet" href="../home.css">
     <link rel="manifest" href="../manifest.json" />
-    <link rel="icon" href="../icons/icon.svg" />
+    <link rel="icon" href="../../icons/icon.svg" />
   </head>
 
-  <body>
-    <div class="navbar">
-      <a href="../index.html">Home</a>
-      <a class="active" href="../index.html">Start An Exam</a>
-      <a href="#cards">NIHSS Cards</a>
-      <a href="#scores">My Saved Scores</a>
-      <a href="#about">About</a>
-    </div>
-    
+  <body>    
     <div class="title-prompt">
-      <h1><a href="../index.html"><img class="small-badge" src="../icons/go-back-arrow.svg" alt="go back arrow" /></a> VIETNAMESE: Select an Exam</h1>
+      <h1><a href="../index.html"><img class="small-badge" src="../../icons/go-back-arrow.svg" alt="go back arrow" /></a> VIETNAMESE: Select an Exam</h1>
     </div>
 
     <div class="page-contents">
@@ -46,6 +38,24 @@
       </div>
     </div>
 
+    <div class="navbar">
+      <a class="active" href="index.html">
+        <img src="../icons/home-icon.svg" alt="Home icon" style="width:50px; height:50px;">
+        <p>Start An Exam</p>
+      </a>
+      <a href="#cards">
+        <img src="../icons/cards-empty-icon.svg" alt="Cards icon" style="width:50px; height:50px;">
+        <p>NIHSS Cards</p>
+      </a>
+      <a href="#scores">
+        <img src="../icons/report-results-icon.svg" alt="My Results icon" style="width:50px; height:50px;">
+        <p>My Saved Scores</p>
+      </a>
+      <a href="#about">
+        <img src="../icons/info-icon.svg" alt="Info icon" style="width:50px; height:50px;">
+        <p>About</p>
+      </a>
+    </div>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
