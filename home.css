@@ -43,16 +43,16 @@ header {
     position: fixed;
     bottom: 0px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    flex-direction: row;
+    align-content: stretch;
 }
 
 .navbar a {
-    float: left;
+    float: center;
     color: #f2f2f2;
     text-align: center;
-    padding: 1rem 0rem 0rem 0rem;
-    margin: 0rem;
+    padding: 1rem 0rem 1rem 0rem;
+    flex: 1;
     text-decoration: none;
     font-size: 17px;
     align-items: center;
