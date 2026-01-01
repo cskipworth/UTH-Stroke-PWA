@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#3367D6" />
+
+    <title>UTH Stroke PWA</title>
+    <link rel="stylesheet" href="../../home.css">
+    <link rel="manifest" href="../../manifest.json" />
+    <link rel="icon" href="../../icons/icon.svg" />
+  </head>
+
+  <body>
+    <div class="title-prompt">
+      <h1><a href="../SPA-landing.html"><img class="small-badge" src="../../icons/go-back-arrow.svg" alt="go back arrow" /></a>
+        Spanish [From English] - NIHSS</h1>
+    </div>
+
+    <div class="exam-container">
+        <div class="slides-container" id="examSlides">
+            <!-- Slide 1 -->
+            <div class="slide" data-question-id="I1">
+                <h1>Introduction | Introducción</h1>
+                <h2>Introduction 1</h2>
+                <p>Welcome to the NIHSS exam with translations in Spanish. Please proceed through the slides to complete the assessment.</p>
+                <p>Below are initial prompts to provide your patient. Follow the prompts and play the accompanying audio before proceeding through the exam.</p>
+                <div>
+                  <audio controls>
+                    <source src="../../audio/SPA/NIHSS/Spanish-NIHSS-Intro-I1.m4a" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                  </audio>
+                  <p>E: Hello, my name is ___ . What is your name?</p>
+                  <p>S: Hola, mi nombre es ___ . ¿Cómo se llama?</p>
+                </div>
+            </div>
+            <div class="slide" data-question-id="I2"> 
+              <div>
+                <h1>Introduction | Introducción</h1>
+                <h2>Introduction 2</h2>
+                  <audio controls>
+                    <source src="../../audio/SPA/NIHSS/Spanish-NIHSS-Intro-I2.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                  </audio>
+                  <p>E: We are worried that you might have a stroke. We are here to examine you.</p>
+                  <p>S: Nos preocupa que pueda tener un derrame cerebral. Estamos aquí para examinarle.</p>
+                </div>
+            </div>
+            <div class="slide" data-question-id="I3"> 
+              <div>
+                <h1>Introduction | Introducción</h1>
+                <h2>Introduction 3</h2>
+                  <audio controls>
+                    <source src="../../audio/SPA/NIHSS/Spanish-NIHSS-Intro-I3.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                  </audio>
+                  <p>E: I will be playing Spanish recordings from my phone. Please answer the questions or follow the instructions.</p>
+                  <p>S: Estaré reproduciendo grabaciones español desde mi teléfono. Por favor, responda a las preguntas o siga los comandos.</p>
+                </div>
+            </div>
+            <div class="slide" data-question-id="1a"> 
+              <div>
+                <h1>NIHSS Questions | Preguntas NIHSS</h1>
+                <h2>1a. Level of consciousness.</h2>
+                <audio controls>
+                  <source src="../../audio/SPA/NIHSS/Spanish-NIHSS-1a.m4a" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+                <p>E: Hello! Hello! Can you hear me?</p>
+                <p>S: ¡Hola! ¡Hola! ¿Puede escucharme?</p>
+                <div class="options">
+                  <button class="option-btn" data-points="0">0. Alert; keenly responsive.</button>
+                  <button class="option-btn" data-points="1">1. Not alert; but arousable by minor stimulation to obey, answer, or respond.</button>
+                  <button class="option-btn" data-points="2">2. Not alert; requires repeated stimulation to attend.</button>
+                  <button class="option-btn" data-points="2">2. Not alert; obtunded and requires strong or painful stimulation to make movements (not stereotyped).</button>
+                  <button class="option-btn" data-points="3">3. Responds only with reflex motor or autonomic effects, or totally unresponsive, flaccid, and areflexic.</button>
+                </div>
+              </div>
+            </div>
+            <div class="slide" data-question-id="1b"> 
+              <div>
+                <h1>NIHSS Questions | Preguntas NIHSS</h1>
+                <h2>1b. Level of consciousness questions.</h2>
+                <audio controls>
+                  <source src="../../audio/SPA/NIHSS/Spanish-NIHSS-1b.m4a" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+                <p>E: What month is it? How old are you?</p>
+                <p>S: ¿En que mes estamos? ¿Cuántos años tiene?</p>
+                <div class="options">
+                  <button class="option-btn" data-points="0">0. Answers both questions correctly.</button>
+                  <button class="option-btn" data-points="1">1. Answers one question correctly.</button>
+                  <button class="option-btn" data-points="2">2. Answers neither question correctly.</button>
+                  <button class="option-btn" data-points="1">1. Intubation, orotracheal trauma, severe dysarthria, or language barrier (preventing speech).</button>
+                  <button class="option-btn" data-points="2">2. Aphasic or stuporous patients (can’t comprehend questions).
+                </div>
+              </div>
+            </div>
+            <!-- Add more slides as needed -->
+            <!-- Results Slide -->
+            <div class="slide" data-question-id="results">
+                <h2>Quiz Results</h2>
+                <p>Your total score is: <span class="total-score"></span></p>
+            </div>
+        </div>
+        <div class="exam-nav-buttons">
+            <button id="prev-btn">Previous</button>
+            <button id="next-btn">Next</button>
+            <p>Current Score: <span class="total-score"></span></p>
+        </div>
+        <div><span id="debug-info"></span></div>
+    </div>
+
+    <script type="module" src="../../exam.js"></script>
+
+    <div class="navbar">
+      <a class="active" href="../../index.html">
+        <img src="../../icons/home-icon.svg" alt="Home icon" style="width:50px; height:50px;">
+        <p>Start An Exam</p>
+      </a>
+      <a href="../nihss-cards.html">
+        <img src="../../icons/cards-empty-icon.svg" alt="Cards icon" style="width:50px; height:50px;">
+        <p>NIHSS Cards</p>
+      </a>
+      <a href="#scores">
+        <img src="../../icons/report-results-icon.svg" alt="My Results icon" style="width:50px; height:50px;">
+        <p>My Saved Scores</p>
+      </a>
+      <a href="#about">
+        <img src="../../icons/info-icon.svg" alt="Info icon" style="width:50px; height:50px;">
+        <p>About</p>
+      </a>
+    </div>
+    <script type="module" src="../../src/main.js"></script>
+  </body>
+</html>

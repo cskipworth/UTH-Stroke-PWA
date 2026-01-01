@@ -72,12 +72,12 @@ header {
 }
 
 .navbar a.active {
-    background-color: #8ba0c9;
+    background-color: #87a6e4;
 }
 
 .title-prompt {
     border-top: 1px solid white;
-    background-color: #8ba0c9;
+    background-color: #87a6e4;
     display: grid;
     place-items: center;
     text-align: center;
@@ -116,4 +116,72 @@ header {
 
 .page-contents div a:hover {
     color: black;
+}
+
+.exam-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    overflow: visible; /* Allow vertical page scrolling; horizontal overflow managed by slides container */
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.slides-container {
+    display: flex;
+    flex-wrap: nowrap; /* prevent slides from wrapping into a column */
+    overflow-x: hidden;
+    overflow-y: visible; /* allow vertical overflow to expand the page instead of internal scrollbars */
+    align-items: flex-start; /* don't stretch slides to match tallest */
+    transition: height 0.25s ease;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory; /* Forces alignment to slides */
+    /*transition: transform 0.5s ease-in-out; /* Smooth transition */
+    width: 100%;
+}
+
+.slide {
+    flex: 0 0 100%;
+    min-width: 100%; /* ensure each slide takes full container width */
+    max-width: 100%;
+    scroll-snap-align: start; /* Aligns each slide to the start */
+    padding: 20px;
+    /*min-width: 100%; /* Each slide takes full width of container */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.option-btn {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #37547a;
+    color: white;
+}
+
+.option-btn.selected {
+    background-color: #87a6e4;
+    color: black;
+}
+
+.exam-nav-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Results breakdown styling (rendered by exam.js under the results slide) */
+.results-breakdown {
+    text-align: left;
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    color: #222;
+}
+.results-breakdown > div {
+    margin: 0.25rem 0;
+}
+.results-breakdown strong {
+    display: inline-block;
 }
