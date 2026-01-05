@@ -19,35 +19,23 @@ function moveSlides(direction) {
 }
 
 function goToSlide(index) {
-    if (!carousel || !slides) return;
+    if (!slides || slides.length === 0) return;
     const clamped = Math.min(Math.max(index, 0), slides.length - 1);
     currentSlide = clamped;
 
-    const tileWidth = carousel.offsetWidth || 0;
-    // Try smooth scroll then enforce final position as a fallback
-    try {
-        carousel.scrollTo({ left: currentSlide * tileWidth, behavior: 'smooth' });
-    } catch (e) {
-        carousel.scrollLeft = currentSlide * tileWidth;
+    // Scroll the target slide into view on the page
+    const target = slides[currentSlide];
+    if (target && typeof target.scrollIntoView === 'function') {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
-    // Fallback: ensure final position after animation (some browsers may interrupt)
-    setTimeout(() => {
-        carousel.scrollLeft = currentSlide * tileWidth;
-        // After physical scroll, update UI and height
-        updateNavButtons();
-        adjustCarouselHeight(currentSlide);
-    }, 300);
-
-    // Also update immediately so buttons respond without waiting
+    // Update navigation UI and results breakdown
     updateNavButtons();
 }
 
-function adjustCarouselHeight(index) {
-    if (!carousel || !slides || !slides[index]) return;
-    // Use the slide's natural height so shorter slides don't leave empty space
-    const h = slides[index].getBoundingClientRect().height;
-    carousel.style.height = `${Math.ceil(h)}px`;
+function adjustCarouselHeight() {
+    // no-op in single-page layout
+    return;
 }
 
 function optionsListener() {
@@ -130,18 +118,24 @@ function renderResultsBreakdown(resultsSlide) {
 
 function updateNavButtons() {
     const current = slides[currentSlide];
+    // Replace previous/next with a single "View Results" button
+    // Always hide the previous button
+    if (prevBtn) prevBtn.style.display = 'none';
 
-    // If this slide is the results slide, hide both nav buttons and nav score
-    if (current && current.dataset && current.dataset.questionId === 'results') {
-        if (nextBtn) nextBtn.style.display = 'none';
-        if (navScorePara) navScorePara.style.display = 'none';
-    } else {
-        if (prevBtn) prevBtn.style.display = (currentSlide === 0) ? 'none' : 'inline-block';
-        if (nextBtn) nextBtn.style.display = 'inline-block';
-        // Use index-based Finish: when the next index is the last slide, label Finish
-        if (nextBtn) nextBtn.textContent = (currentSlide === slides.length - 2) ? 'Finish' : 'Next';
-        if (navScorePara) navScorePara.style.display = 'block';
-    }
+        // If this slide is the results slide, show a "Refresh Results" button so
+        // the breakdown can be re-rendered on demand; hide the nav score paragraph.
+        if (current && current.dataset && current.dataset.questionId === 'results') {
+            if (nextBtn) {
+                nextBtn.style.display = 'inline-block';
+                nextBtn.textContent = 'Refresh Results';
+            }
+            if (navScorePara) navScorePara.style.display = 'none';
+        } else {
+            if (prevBtn) prevBtn.style.display = 'none';
+            if (nextBtn) nextBtn.style.display = 'inline-block';
+            if (nextBtn) nextBtn.textContent = 'View Results';
+            if (navScorePara) navScorePara.style.display = 'block';
+        }
     updateScoreDisplays();
     // Render per-question breakdown on the results slide
     if (current && current.dataset && current.dataset.questionId === 'results') {
@@ -156,33 +150,33 @@ function updateNavButtons() {
     //if (debugInfo) debugInfo.innerText = `Debug Info: Current Slide: ${currentSlide + 1} / ${slides.length}, Total Score: ${totalScore}`;
 }
 
-// Ensure height is recalculated after any DOM changes (e.g. results breakdown)
-requestAnimationFrame(() => adjustCarouselHeight(currentSlide));
-
 // Initialize listeners and UI
 optionsListener();
-// Set initial carousel height and listeners
+// Set initial UI
 updateNavButtons();
-adjustCarouselHeight(currentSlide);
 
-// Recalculate height on window resize and when media loads
-window.addEventListener('resize', () => adjustCarouselHeight(currentSlide));
-document.querySelectorAll('img').forEach(img => img.addEventListener('load', () => adjustCarouselHeight(currentSlide)));
-document.querySelectorAll('audio').forEach(a => a.addEventListener('loadeddata', () => adjustCarouselHeight(currentSlide)));
+// Use this for debugging
+if (debugInfo) debugInfo.innerText = `Debug Info: Current Slide: ${currentSlide + 1} / ${slides.length}, Total Score: ${totalScore}`;
 
 // Expose moveSlides for inline onclick handlers (module scope doesn't expose functions to window)
 window.moveSlides = moveSlides;
 
 // Also attach click handlers to prev/next buttons so they work without inline attributes
-if (prevBtn) prevBtn.addEventListener('click', () => moveSlides(-1));
+if (prevBtn) {
+    // Hide/remove previous behavior since we use a single View Results button
+    prevBtn.style.display = 'none';
+}
 if (nextBtn) nextBtn.addEventListener('click', () => {
-    // Index-based: if we're on the slide before the last, go to the last (results)
-    if (currentSlide === slides.length - 2) {
-        currentSlide = slides.length - 1;
-        const tileWidth = carousel ? carousel.offsetWidth : 0;
-        if (carousel) carousel.scrollTo({ left: currentSlide * tileWidth, behavior: 'smooth' });
-        updateNavButtons();
+    // If we're already on results, refresh the breakdown; otherwise jump there
+    const current = slides[currentSlide];
+    if (current && current.dataset && current.dataset.questionId === 'results') {
+        renderResultsBreakdown(current);
+        updateScoreDisplays();
         return;
     }
-    moveSlides(1);
+    // Jump directly to the results slide (find its index dynamically)
+    const resultsIndex = Array.from(slides).findIndex(s => s.dataset && s.dataset.questionId === 'results');
+    if (resultsIndex >= 0) {
+        goToSlide(resultsIndex);
+    }
 });
