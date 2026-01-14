@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../home.css">
     <link rel="manifest" href="../../manifest.json" />
     <link rel="icon" href="../../icons/icon.svg" />
+    
   </head>
 
   <body>
@@ -23,8 +24,7 @@
             <div class="slide" data-question-id="I1">
                 <h1>Introduction | Introducción</h1>
                 <h2>Introduction 1</h2>
-                <p>Welcome to the NIHSS exam with translations in Spanish. Please proceed through the slides to complete the assessment.</p>
-                <p>Below are initial prompts to provide your patient. Follow the prompts and play the accompanying audio before proceeding through the exam.</p>
+                <p>Below are prompts translated from English to Spanish to provide to your patient. Follow the prompts, playing the accompanying audio before proceeding through the exam.</p>
                 <div>
                   <audio controls>
                     <source src="../../audio/SPA/NIHSS/Spanish-NIHSS-Intro-I1.mp3" type="audio/mpeg">
@@ -90,11 +90,119 @@
                   <button class="option-btn" data-points="1">1. Answers one question correctly.</button>
                   <button class="option-btn" data-points="2">2. Answers neither question correctly.</button>
                   <button class="option-btn" data-points="1">1. Intubation, orotracheal trauma, severe dysarthria, or language barrier (preventing speech).</button>
-                  <button class="option-btn" data-points="2">2. Aphasic or stuporous patients (can’t comprehend questions).
+                  <button class="option-btn" data-points="2">2. Aphasic or stuporous patients (can’t comprehend questions).</button>
                 </div>
               </div>
             </div>
-            <!-- Add more slides as needed -->
+            <div class="slide" data-question-id="1c"> 
+              <div>
+                <h2>1c. Level of consciousness questions.</h2>
+                <div>
+                  <audio controls>
+                    <source src="../../audio/SPA/NIHSS/Spanish-NIHSS-1c.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                  </audio>
+                  <p>E: Close your eyes tightly. Now open your eyes. Make a fist with your hand. Now open your hand.</p>
+                  <p>S: Cierre los ojos con fuerza. Ahora abra los ojos. Muestreme su puño. Ahora abra su mano.</p>
+                  <div class="options">
+                    <button class="option-btn" data-points="0">0. Performs both tasks correctly.</button>
+                    <button class="option-btn" data-points="1">1. Performs one task correctly.</button>
+                    <button class="option-btn" data-points="2">2. Performs neither task correctly.</button>
+                  </div>
+              </div>
+            </div>
+            <div class="slide" data-question-id="2"> 
+              <div class="title-with-info-popover">
+                <h2>2. Best gaze.</h2>
+                <input type="checkbox" id="popover-2" class="popover-toggle" />
+                <label for="popover-2" class="popover-btn">
+                  <img src="../../icons/question-in-circle.svg" alt="About icon">
+                </label>
+                <div class="popover">
+                  <label for="popover-2" class="popover-backdrop" aria-hidden></label>
+                  <div class="popover-content" role="dialog" aria-modal="true" aria-labelledby="popover-2-title">
+                    <label for="popover-2" class="popover-close" aria-hidden>✕</label>
+                    <h2 id="popover-2-title">2. Best gaze.</h2>
+                    <p>Only horizontal eye movements will be tested. 
+                      Voluntary or reflexive (oculocephalic) eye movements will be scored, but caloric testing is not done. 
+                      If the patient has a conjugate deviation of the eyes that can be overcome by voluntary or reflexive activity, the score will be 1. 
+                      If a patient has an isolated peripheral nerve paresis (CN III, IV, or VI), score a 1. 
+                      Gaze is testable in all aphasic patients. 
+                      Patients with ocular trauma, bandages, preexisting blindness, or other disorder of visual acuity or fields should be tested with reflexive movements, and a choice made by the investigator. 
+                      Establishing eye contact and then moving about the patient from side to side will occasionally clarify the presence of a partial gaze palsy.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <audio controls>
+                  <source src="../../audio/SPA/NIHSS/Spanish-NIHSS-2.mp3" title="NIHSS 2" type="audio/mpeg">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>E: Follow my finger with your eyes. Keep your head still.</p>
+              <p>S: Siga mi dedo con sus ojos. Manténga la cabeza quieta.</p>
+              <audio controls>
+                <source src="../../audio/SPA/NIHSS/Spanish-NIHSS-2-repeat.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+              <p>E: Keep your head still.</p>
+              <p>S: Manténga la cabeza quieta.</p>
+              <div class="options">
+                <button class="option-btn" data-points="0">0. Normal.</button>
+                <button class="option-btn" data-points="1">1. Partial gaze palsy; can be overcome.</button>
+                <button class="option-btn" data-points="1">1. Partial gaze palsy; corrects with oculocephalic reflex.</button>
+                <button class="option-btn" data-points="2">2. Forced deviation, or total gaze paresis is not overcome by the oculocephalic maneuver.</button>
+              </div>
+            </div>
+            <div class="slide" data-question-id="3"> 
+              <div class="title-with-info-popover">
+                <h2>3. Visual.</h2>
+                <input type="checkbox" id="popover-3" class="popover-toggle" />
+                <label for="popover-3" class="popover-btn">
+                  <img src="../../icons/question-in-circle.svg" alt="About icon">
+                </label>
+                <div class="popover">
+                  <label for="popover-3" class="popover-backdrop" aria-hidden></label>
+                  <div class="popover-content" role="dialog" aria-modal="true" aria-labelledby="popover-3-title">
+                    <label for="popover-3" class="popover-close" aria-hidden>✕</label>
+                    <h2 id="popover-3-title">3. Visual.</h2>
+                    <p>Visual fields (upper and lower quadrants) are tested by confrontation, using finger counting or visual threat, as appropriate. 
+                      Patients may be encouraged, but if they look at the side of the moving fingers appropriately, this can be scored as normal. 
+                      If there is unilateral blindness or enucleation, visual fields in the remaining eye are scored. 
+                      Score 1 only if a clear-cut asymmetry, including quadrantanopia, is found. 
+                      If patient is blind from any cause, score 3. 
+                      Double simultaneous stimulation is performed at this point. 
+                      If there is extinction, patient receives a 1, and the results are used to respond to item 11.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <audio controls>
+                  <source src="../../audio/SPA/NIHSS/Spanish-NIHSS-3-and-11-visual-option2.mp3" title="NIHSS 3" type="audio/mpeg">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>E: Look at my nose. Point to the side I am wiggling. Which side? Which side? Which side?</p>
+              <p>S: Mire mi nariz. Señale que mano estoy moviendo. ¿De qué lado? ¿De qué lado? ¿De qué lado?</p>
+              <audio controls>
+                <source src="../../audio/SPA/NIHSS/Spanish-NIHSS-3-and-11-visual-option3.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+              <p>E: Look at my nose. Am I wiggling my fingers on the right, left, or both sides? Which side? Which side?</p>
+              <p>S: Mire mi nariz. ¿Estoy moviendo mis dedos hacia la derecha, la izquierda, o ambos lados?¿De qué lado?¿De qué lado?</p>
+              <audio controls>
+                <source src="../../audio/SPA/NIHSS/Spanish-NIHSS-3-repeat.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+              </audio>
+              <p>E: Keep looking at my nose.</p>
+              <p>S: Siga mirando mi nariz.</p>
+              <div class="options">
+                <button class="option-btn" data-points="0">0. No visual loss.</button>
+                <button class="option-btn" data-points="1">1. Partial hemianopia.</button>
+                <button class="option-btn" data-points="1">2. Complete hemianopia.</button>
+                <button class="option-btn" data-points="2">3. Bilateral hemianopia (blind including cortical blindness).</button>
+                <button class="option-btn" data-points="3">3. Bilateral blindness.</button>
+              </div>
+            </div>
+              <!-- Add more slides as needed -->
             <!-- Results Slide -->
             <div class="slide" data-question-id="results">
                 <h2>Quiz Results</h2>

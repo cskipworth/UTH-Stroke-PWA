@@ -38,13 +38,17 @@ header {
 .navbar {
     background-color: #37547a;
     overflow: hidden;
-    width: 100%;
-    height: auto;
     position: fixed;
-    bottom: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw; /* ensure it spans the viewport */
+    max-width: none;
+    height: auto;
     display: flex;
     flex-direction: row;
     align-content: stretch;
+    z-index: 1500; /* float above page content */
 }
 
 .navbar a {
@@ -73,6 +77,20 @@ header {
 
 .navbar a.active {
     background-color: #87a6e4;
+}
+
+[popover] {
+    padding: 1rem;
+    border: 1px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    inset: auto auto auto 100%;
+    display: inline-block;
+}
+
+[popover]:popover-open {
+    border-color: #007bff;
+    margin-top: 0;
 }
 
 .title-prompt {
@@ -176,4 +194,93 @@ header {
 }
 .results-breakdown strong {
     display: inline-block;
+}
+
+/* CSS-only centered full-screen popover (checkbox + label hack) */
+.popover-toggle { 
+    display: none; 
+}
+
+
+.title-with-info-popover { 
+     position: relative; 
+     display: flex;
+     align-items: center; /* vertically center children (h2 + icon) */
+     gap: 0.5rem;
+     flex-wrap: wrap; /* allow heading to wrap on small screens */
+}
+
+.title-with-info-popover h2 { 
+    margin: 0; 
+}
+
+label.popover-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin: 0;
+    padding: 0;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+label.popover-btn img {
+    width: 1.5rem;
+    height: 1.5rem;
+    min-width: 1rem;
+    min-height: 1rem;
+    display: block;
+}
+
+label.popover-btn:focus {
+    outline: 3px solid rgba(135,166,228,0.6);
+    outline-offset: 2px;
+    border-radius: 50%;
+}
+
+.popover {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.popover .popover-backdrop { 
+    position: absolute; inset: 0; 
+}
+
+.popover .popover-content {
+    background: #fff;
+    color: #000;
+    max-width: 720px;
+    width: 100%;
+    max-height: 85vh;
+    overflow: auto;
+    padding: 1.25rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.popover .popover-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    background: transparent;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: #444;
+}
+/* Show popover when the toggle is checked */
+.popover-toggle:checked ~ .popover { 
+    display: flex; 
 }
