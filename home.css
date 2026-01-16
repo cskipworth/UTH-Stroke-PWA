@@ -58,12 +58,17 @@ header {
     padding: 1rem 0rem 1rem 0rem;
     flex: 1;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 1rem;
     align-items: center;
 }
 
 .navbar a img {
     filter: invert(100%) sepia(61%) saturate(343%) hue-rotate(131deg) brightness(90%) contrast(87%);
+}
+
+.navbar a p {
+    margin: 0;
+    font-size: 0.8rem;
 }
 
 .navbar a:hover {

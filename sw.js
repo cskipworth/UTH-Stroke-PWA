@@ -1,7 +1,8 @@
-const CACHE_NAME = 'uth-stroke-pwa-v1';
+const CACHE_NAME = 'uth-stroke-pwa-v2';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
+  '/home.css',
   '/src/main.js',
   '/manifest.json',
   '/icons/icon-192.svg',
