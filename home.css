@@ -284,3 +284,14 @@ label.popover-btn:focus {
 .popover-toggle:checked ~ .popover { 
     display: flex; 
 }
+/* Audio and paragraph styling for exam slides */
+audio {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.slide p {
+    display: block;
+    margin: 0.5rem 0;
+}
