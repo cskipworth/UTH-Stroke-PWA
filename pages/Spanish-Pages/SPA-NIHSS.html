@@ -13,7 +13,7 @@
   </head>
 
   <body>
-    <div class="title-prompt">
+    <div class="title-prompt-sticky">
       <h1><a href="../SPA-landing.html"><img class="small-badge" src="../../icons/go-back-arrow.svg" alt="go back arrow" /></a>
         Spanish [From English] - NIHSS</h1>
     </div>
@@ -697,18 +697,23 @@
             <!-- Results Slide -->
             <div class="slide" data-question-id="results">
                 <h2>Quiz Results</h2>
-                <p>Your total score is: <span class="total-score"></span></p>
             </div>
         </div>
         <div class="exam-nav-buttons">
             <button id="prev-btn">Previous</button>
             <button id="next-btn">Next</button>
-            <p>Current Score: <span class="total-score"></span></p>
         </div>
-        <div><span id="debug-info"></span></div>
+        <div class="score-board">
+          <p>Total Current Score: <span class="total-score"></span></p>
+        </div>
+    </div>
     </div>
 
     <script type="module" src="../../exam.js"></script>
+
+    <div class="exam-nav-links">
+      <a href="SPA-CN.html" class="next-exam">Spanish Remaining Cranial Nerves ></a>
+    </div>
 
     <div class="navbar">
       <a class="active" href="../../index.html">

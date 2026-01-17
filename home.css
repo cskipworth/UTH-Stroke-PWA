@@ -108,6 +108,23 @@ header {
     color: rgb(24, 37, 37);
 }
 
+.title-prompt-sticky {
+    border-top: 1px solid white;
+    background-color: #87a6e4;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    width: 100%;
+    color: rgb(24, 37, 37);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+
 .page-contents {
     display: grid;
     place-items: center;
@@ -206,6 +223,13 @@ header {
 }
 .results-breakdown strong {
     display: inline-block;
+}
+
+.score-board {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
 /* CSS-only centered full-screen popover (checkbox + label hack) */
@@ -307,4 +331,31 @@ audio {
 .slide p {
     display: block;
     margin: 0.5rem 0;
+}
+
+/* Exam navigation links */
+.exam-nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin: 0 auto 3rem;
+    gap: 2rem;
+    width: fit-content;
+}
+
+.exam-nav-links a {
+    padding: 0.75rem 1.5rem;
+    background-color: #37547a;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.exam-nav-links a:hover {
+    background-color: #87a6e4;
+    color: black;
 }
