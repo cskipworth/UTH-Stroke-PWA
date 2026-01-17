@@ -6,11 +6,11 @@ body {
     height: 100%;
     margin: 0;
     padding: 0 0 10rem 0;
-    width: 100vw;
+    width: 100%;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial;
     background: #f7f9fc; 
     color: black;
-    font-size: 16px;
+    font-size: 1rem;
 }
       
 header { 
@@ -20,13 +20,13 @@ header {
 }
 
 .badge {
-    width: 48px;
-    height: 48px;
+    width: 3rem;
+    height: 3rem;
 }
 
 .small-badge {
-    width: 30px;
-    height: 30px;
+    width: 1.875rem;
+    height: 1.875rem;
     filter: invert(8%) sepia(61%) saturate(343%) hue-rotate(131deg) brightness(90%) contrast(87%);
 }
 
@@ -42,7 +42,7 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100vw; /* ensure it spans the viewport */
+    width: 100%;
     max-width: none;
     height: auto;
     display: flex;
@@ -87,7 +87,7 @@ header {
 [popover] {
     padding: 1rem;
     border: 1px solid black;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
     inset: auto auto auto 100%;
     display: inline-block;
@@ -137,16 +137,17 @@ header {
 .page-contents div {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
     column-gap: 1rem;
     row-gap: 1rem;
     align-items: flex-start;
+    margin: auto 10rem auto 10rem;
 }
 
 .page-contents div a {
     /*border: 1px solid black;*/
     place-items: center;
-    border-radius: 17px;
+    border-radius: 1.0625rem;
     padding: 1rem 1rem;
     background-color: #37547a;
     color: white;
@@ -161,11 +162,11 @@ header {
 .exam-container {
     position: relative;
     width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
+    max-width: 37.5rem;
+    margin: 10rem auto auto auto;
     overflow: visible; /* Allow vertical page scrolling; horizontal overflow managed by slides container */
     border: 1px solid #ccc;
-    padding: 20px;
+    padding: 1.25rem;
 }
 
 .slides-container {
@@ -178,7 +179,7 @@ header {
 .slide {
     width: 100%;
     max-width: 100%;
-    padding: 20px;
+    padding: 1.25rem;
     box-sizing: border-box;
     text-align: left; /* left-align content for single-page layout */
     margin-bottom: 1rem;
@@ -194,8 +195,8 @@ header {
     display: block;
     width: 80%;
     min-width: 17.5rem;
-    margin: 10px auto;
-    padding: 10px;
+    margin: 0.625rem auto;
+    padding: 0.625rem;
     cursor: pointer;
     background-color: #37547a;
     color: white;
@@ -208,7 +209,7 @@ header {
 
 .exam-nav-buttons {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 1.25rem;
 }
 
 /* Results breakdown styling (rendered by exam.js under the results slide) */
@@ -274,7 +275,7 @@ label.popover-btn img {
 
 label.popover-btn:focus {
     outline: 3px solid rgba(135,166,228,0.6);
-    outline-offset: 2px;
+    outline-offset: 0.125rem;
     border-radius: 50%;
 }
 
@@ -296,13 +297,13 @@ label.popover-btn:focus {
 .popover .popover-content {
     background: #fff;
     color: #000;
-    max-width: 720px;
+    max-width: 45rem;
     width: 100%;
     max-height: 85vh;
     overflow: auto;
     padding: 1.25rem;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border-radius: 0.5rem;
+    box-shadow: 0 0.625rem 1.875rem rgba(0,0,0,0.3);
     position: relative;
 }
 
