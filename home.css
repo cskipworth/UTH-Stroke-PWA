@@ -125,6 +125,38 @@ header {
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
 }
 
+.title-prompt-exam {
+    border-top: 1px solid white;
+    background-color: #87a6e4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: center;
+    width: 100%;
+    color: rgb(24, 37, 37);
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.big-phrases {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem auto;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.buttons-exam {
+    display: flex;
+    justify-content: center;
+    margin: 2rem auto 0 auto;
+    width: fit-content;
+}
+
 .page-contents {
     display: grid;
     place-items: center;
@@ -132,6 +164,20 @@ header {
     padding: 2rem 2rem;
     row-gap: 2rem;
     flex-wrap: wrap;
+}
+
+.page-contents audio {
+    max-width: 30rem;
+    width: 100%;
+}
+
+.buttons-exam div {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    margin: auto;
 }
 
 .page-contents div {
@@ -144,6 +190,7 @@ header {
     margin: auto 10rem auto 10rem;
 }
 
+.buttons-exam div a,
 .page-contents div a {
     /*border: 1px solid black;*/
     place-items: center;
@@ -251,6 +298,10 @@ header {
     margin: 0; 
 }
 
+.title-prompt-exam h2 {
+    margin: 0;
+}
+
 label.popover-btn {
     display: inline-flex;
     align-items: center;
@@ -318,6 +369,10 @@ label.popover-btn:focus {
     color: #444;
 }
 /* Show popover when the toggle is checked */
+.popover-toggle {
+    display: none;
+}
+
 .popover-toggle:checked ~ .popover { 
     display: flex; 
 }
