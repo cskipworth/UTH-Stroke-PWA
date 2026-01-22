@@ -8,15 +8,6 @@ Features include:
 - Score report summary from calculator results from both scales that can be saved or shared in a text format via WhatsApp, text, and email.
 - Additional static pages with information for tPA and TNK eligibility criteria and dosing, as well as other miscellaneous information e.g. project team and contact information.
 
-Files added:
-
-- `index.html` — App shell and link to manifest
-- `manifest.json` — Web App Manifest
-- `sw.js` — Service Worker (caching app shell)
-- `src/main.js` — Registers the service worker
-- `icons/icon.svg`, `icons/icon-192.svg`, `icons/icon-512.svg` — placeholder icons
-- `package.json` — simple scripts to start a local server
-
 Quick start (local test):
 
 1. From the repo root run one of these:
@@ -38,4 +29,3 @@ Quick start (local test):
 
 Notes:
 - For production you should serve over HTTPS and replace the placeholder icons with proper PNGs at multiple sizes (192x192, 512x512).
-- This skeleton is intentionally minimal. Expand caching rules, update lifecycle handling, and add a proper offline page as needed.
