@@ -166,6 +166,16 @@ header {
     flex-wrap: wrap;
 }
 
+.page-contents-under-sticky {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    padding: 2rem 2rem;
+    row-gap: 2rem;
+    margin-top: 8rem;
+    flex-wrap: wrap;
+}
+
 .page-contents audio {
     max-width: 30rem;
     width: 100%;
@@ -414,4 +424,193 @@ audio {
 .exam-nav-links a:hover {
     background-color: #87a6e4;
     color: black;
+}
+
+/* Saved Scores Page Styles */
+.exam-details-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 1rem;
+}
+
+.exam-details-modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-button {
+    padding: 0.75rem 1.5rem;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 0 0.5rem;
+}
+
+.modal-close-btn {
+    background-color: #37547a;
+}
+
+.modal-delete-btn {
+    background-color: #d32f2f;
+}
+
+.modal-button:hover {
+    opacity: 0.9;
+}
+
+.modal-button-container {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.scores-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.scores-table thead tr {
+    background-color: #37547a;
+    color: white;
+}
+
+.scores-table th,
+.scores-table td {
+    padding: 1rem;
+    border: 1px solid #ddd;
+}
+
+.scores-table th {
+    text-align: left;
+}
+
+.scores-table td {
+    border-bottom: 1px solid #ddd;
+}
+
+.scores-table-exam-name {
+    text-align: left;
+}
+
+.scores-table-score {
+    text-align: center;
+    font-weight: bold;
+    color: #2b8a3e;
+    font-size: 1.1em;
+}
+
+.scores-table-date {
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.scores-table-action {
+    text-align: center;
+}
+
+.view-exam-btn {
+    padding: 0.5rem 1rem;
+    background-color: #37547a;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.view-exam-btn:hover {
+    background-color: #87a6e4;
+    color: black;
+}
+
+.clear-history-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 2rem;
+    transition: background-color 0.3s ease;
+}
+
+.clear-history-btn:hover {
+    background-color: #b71c1c;
+}
+
+.clear-history-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.answer-breakdown {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.answer-item {
+    margin-bottom: 1rem;
+    border-left: 4px solid #37547a;
+    padding-left: 1rem;
+}
+
+.answer-item strong {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.answer-item em {
+    color: #666;
+    display: block;
+}
+
+/* Complete Exam Button */
+.exam-complete-container {
+    display: flex;
+    justify-content: center;
+    margin: 3rem auto 2rem;
+    padding: 2rem;
+}
+
+.complete-exam-btn {
+    padding: 1rem 2rem;
+    background-color: #2b8a3e;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.complete-exam-btn:hover {
+    background-color: #1e6b2f;
+    transform: scale(1.05);
+}
+
+.complete-exam-btn:active {
+    transform: scale(0.98);
 }
