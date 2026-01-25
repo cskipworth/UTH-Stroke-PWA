@@ -84,8 +84,8 @@
         // Create a detailed view
         let details = `
           <h2>${formatExamName(exam.examName)}</h2>
-          <p><strong>Exam ID:</strong> ${exam.examID}</p>
           <p><strong>Completed:</strong> ${formatDate(exam.completedAt)}</p>
+          <p><strong>Exam ID:</strong> ${exam.examID}</p>
           <p><strong>Total Score:</strong> <span style="font-size: 1.3em; color: #2b8a3e; font-weight: bold;">${exam.totalScore}</span></p>
           
           <h3>Answers Breakdown:</h3>
@@ -115,14 +115,23 @@
         const modalContent = document.createElement('div');
         modalContent.className = 'exam-details-modal-content';
 
-        modalContent.innerHTML = details + `
+        modalContent.innerHTML = `
+          ${details}
           <div class="modal-button-container">
             <button class="modal-button modal-close-btn" onclick="document.getElementById('exam-details-modal').remove()">Close</button>
             <button class="modal-button modal-delete-btn" onclick="deleteExam('${examID}')">Delete Exam</button>
           </div>
         `;
 
+        // Close modal when clicking on the overlay (but not the content)
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal) {
+            modal.remove();
+          }
+        });
+
         modal.appendChild(modalContent);
+        document.body.appendChild(modal);
         document.body.appendChild(modal);
       }
 
