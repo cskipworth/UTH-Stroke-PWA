@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,orientation=portrait" />
     <meta name="theme-color" content="#3367D6" />
 
-    <title>UTH Stroke PWA</title>
+    <title>Exam Results - UTH Stroke PWA</title>
     <link rel="stylesheet" href="../home.css">
     <link rel="manifest" href="../manifest.json" />
     <link rel="icon" href="../icons/icon.svg" />
@@ -13,13 +13,23 @@
 
   <body>
     <div class="title-prompt-sticky">
-      <h1><a href="./SPA-landing.html"><img class="small-badge" src="../icons/go-back-arrow.svg" alt="go back arrow" /></a>
-        NIHSS Score Results</h1>
+      <h1><a hhref="#" onclick="history.back(); return false;"><img class="small-badge" src="../icons/go-back-arrow.svg" alt="go back arrow" /></a>
+        Exam Results Details</h1>
     </div>
 
     <div class="page-contents-under-sticky">
-      <p> This page is currently under construction.</p>
-      <p>There will be further options for user input before saving the exam results to be added to exam history. Please click the "My Saved Scores" icon in the navigation bar to view your saved exam results. </p>
+      <div id="exam-metadata" class="exam-metadata-form">
+        <!-- Metadata fields will be populated here -->
+      </div>
+
+      <div id="exam-answers-table" class="exam-answers-section">
+        <!-- Answers table will be populated here -->
+      </div>
+
+      <div class="exam-complete-container">
+        <button class="complete-exam-btn" id="editBtn" onclick="editExamResponses()">Edit Responses</button>
+        <button class="complete-exam-btn" id="saveBtn" onclick="finalizeAndSaveExam()">Save Exam Details</button>
+      </div>
     </div>
 
     <div class="navbar">
@@ -40,6 +50,8 @@
         <p>More</p>
       </a>
     </div>
+
+    <script src="../src/score-results.js"></script>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

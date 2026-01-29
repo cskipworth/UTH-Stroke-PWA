@@ -8,18 +8,23 @@ The exam system now automatically saves user answers to browser `localStorage` w
 - **points**: The numeric value from `data-points` attribute
 - **text**: The exact text content of the selected button
 - **timestamp**: When the answer was recorded (ISO format)
+- **exam**: The name of the exam being taken
+- **un-reason-text** *(optional)*: The explanation text when "UN" (Untestable) option is selected
 
 Answers are stored and can be accessed across multiple pages without requiring server communication.
 
 ## Key Functions
 
-### `saveAnswerToStorage(questionId, points, answerText)`
+### `saveAnswerToStorage(questionId, points, answerText, examName, unReasonText)`
 Saves an answer for a specific question.
 - **Parameters**:
   - `questionId` (string): The value of `data-question-id` attribute from the slide
   - `points` (number): The point value for this answer
   - `answerText` (string): The text content of the button clicked
+  - `examName` (string, optional): The name of the current exam (defaults to global `currentExamName`)
+  - `unReasonText` (string, optional): The explanation text if "UN" (Untestable) was selected
 - **Called automatically** when a user clicks an option button
+- **Called with UN text** when a user modifies the UN explanation textarea
 
 ### `getAnswersFromStorage()`
 Retrieves all saved answers.
@@ -99,12 +104,21 @@ Data is stored in browser localStorage under the key `'examAnswers'`:
   "1a": {
     "points": 0,
     "text": "0. Alert; keenly responsive.",
-    "timestamp": "2026-01-17T14:32:45.123Z"
+    "timestamp": "2026-01-17T14:32:45.123Z",
+    "exam": "SPA-NIHSS"
+  },
+  "5a": {
+    "points": "UN",
+    "text": "UN. Amputation or joint fusion, explain:",
+    "timestamp": "2026-01-17T14:32:50.456Z",
+    "exam": "SPA-NIHSS",
+    "un-reason-text": "Patient has left arm amputation above elbow"
   },
   "1b": {
     "points": 1,
     "text": "1. Answers one question correctly.",
-    "timestamp": "2026-01-17T14:32:50.456Z"
+    "timestamp": "2026-01-17T14:32:55.789Z",
+    "exam": "SPA-NIHSS"
   }
 }
 ```

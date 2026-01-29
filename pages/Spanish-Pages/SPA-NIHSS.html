@@ -295,7 +295,9 @@
                   <button class="option-btn" data-points="2">2. Some effort against gravity; limb cannot get to or maintain (if cued) 90 (or 45) degrees, drifts down to bed, but has some effort against gravity.</button>
                   <button class="option-btn" data-points="3">3. No effort against gravity; limb falls.</button>
                   <button class="option-btn" data-points="4">4. No movement.</button>
-                  <button class="option-btn" data-points="UN">UN. Amputation or joint fusion, explain:</button>
+                  <button class="option-btn" data-points="UN" data-un-question="5a">UN. Amputation or joint fusion, explain:</button>
+                  <textarea class="un-explanation-input" data-un-question="5a" placeholder="Explain why this is untestable" style="display: none;"></textarea>
+                  <button class="un-done-btn" data-un-question="5a" style="display: none;">Done</button>
                 </div>
             </div>
             <div class="slide" data-question-id="5b"> 
@@ -343,7 +345,9 @@
                   <button class="option-btn" data-points="2">2. Some effort against gravity; limb cannot get to or maintain (if cued) 90 (or 45) degrees, drifts down to bed, but has some effort against gravity.</button>
                   <button class="option-btn" data-points="3">3. No effort against gravity; limb falls.</button>
                   <button class="option-btn" data-points="4">4. No movement.</button>
-                  <button class="option-btn" data-points="UN">UN. Amputation or joint fusion, explain:/button>
+                  <button class="option-btn" data-points="UN" data-un-question="5b">UN. Amputation or joint fusion, explain:</button>
+                  <textarea class="un-explanation-input" data-un-question="5b" placeholder="Explain why this is untestable" style="display: none;"></textarea>
+                  <button class="un-done-btn" data-un-question="5b" style="display: none;">Done</button>
                 </div>
             </div>
             <div class="slide" data-question-id="6a"> 
@@ -385,7 +389,9 @@
                   <button class="option-btn" data-points="2">2. Some effort against gravity; leg falls to bed by 5 seconds but has some effort against gravity.</button>
                   <button class="option-btn" data-points="3">3. No effort against gravity; leg falls to bed immediately.</button>
                   <button class="option-btn" data-points="4">4. No movement.</button>
-                  <button class="option-btn" data-points="UN">UN. Amputation or joint fusion, explain:</button>
+                  <button class="option-btn" data-points="UN" data-un-question="6a">UN. Amputation or joint fusion, explain:</button>
+                  <textarea class="un-explanation-input" data-un-question="6a" placeholder="Explain why this is untestable" style="display: none;"></textarea>
+                  <button class="un-done-btn" data-un-question="6a" style="display: none;">Done</button>
                 </div>
             </div>
             <div class="slide" data-question-id="6b"> 
@@ -427,7 +433,9 @@
                   <button class="option-btn" data-points="2">2. Some effort against gravity; leg falls to bed by 5 seconds but has some effort against gravity.</button>
                   <button class="option-btn" data-points="3">3. No effort against gravity; leg falls to bed immediately.</button>
                   <button class="option-btn" data-points="4">4. No movement.</button>
-                  <button class="option-btn" data-points="UN">UN. Amputation or joint fusion, explain:</button>
+                  <button class="option-btn" data-points="UN" data-un-question="6b">UN. Amputation or joint fusion, explain:</button>
+                  <textarea class="un-explanation-input" data-un-question="6b" placeholder="Explain why this is untestable" style="display: none;"></textarea>
+                  <button class="un-done-btn" data-un-question="6b" style="display: none;">Done</button>
                 </div>
             </div>
             <div class="slide" data-question-id="7"> 
@@ -480,7 +488,9 @@
                   <button class="option-btn" data-points="0">0. Absent.</button>
                   <button class="option-btn" data-points="1">1. Present in one limb.</button>
                   <button class="option-btn" data-points="2">2. Present in two limbs.</button>
-                  <button class="option-btn" data-points="UN">UN. Amputation or joint fusion, explain.</button>
+                  <button class="option-btn" data-points="UN" data-un-question="7">UN. Amputation or joint fusion, explain.</button>
+                  <textarea class="un-explanation-input" data-un-question="7" placeholder="Explain why this is untestable" style="display: none;"></textarea>
+                  <button class="un-done-btn" data-un-question="7" style="display: none;">Done</button>
                 </div>
             </div>
             <div class="slide" data-question-id="8"> 
@@ -662,7 +672,9 @@
                   <button class="option-btn" data-points="0">0. Normal.</button>
                   <button class="option-btn" data-points="1">1. Mild-to-moderate dysarthria; patient slurs at least some words and, at worst, can be understood with some difficulty.</button>
                   <button class="option-btn" data-points="2">2. Severe dysarthria; patient's speech is so slurred as to be unintelligible in the absence of or out of proportion to any dysphasia, or is mute/anarthric.</button>
-                  <button class="option-btn" data-points="UN">UN. Intubated or other physical barrier, explain.</button>
+                  <button class="option-btn" data-points="UN" data-un-question="10">UN. Intubated or other physical barrier, explain:</button>
+                  <textarea class="un-explanation-input" data-un-question="10" placeholder="Explain why this is untestable" style="display: none;"></textarea>
+                  <button class="un-done-btn" data-un-question="10" style="display: none;">Done</button>
                 </div>
             </div>
             <div class="slide" data-question-id="11"> 
@@ -728,10 +740,6 @@
                   <h2>Quiz Results</h2>
                 </div>
             </div>
-        </div>
-        <div class="exam-nav-buttons">
-            <button id="prev-btn">Previous</button>
-            <button id="next-btn">Next</button>
         </div>
         <div class="score-board">
           <p>Total Current Score: <span class="total-score"></span></p>

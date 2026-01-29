@@ -287,6 +287,10 @@ header {
     background-color: #d32f2f;
 }
 
+.modal-edit-btn {
+    background-color: #3367D6;
+}
+
 /* ========================================
    NAVBAR STYLES (Alphabetical)
    ======================================== */
@@ -358,6 +362,52 @@ header {
 .option-btn.selected {
     background-color: #87a6e4;
     color: black;
+}
+
+.un-explanation-input {
+    display: block;
+    width: 80%;
+    min-width: 17.5rem;
+    margin: 0.625rem auto;
+    padding: 0.625rem;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 1px solid #999;
+    border-radius: 4px;
+    resize: vertical;
+    min-height: 6rem;
+}
+
+.un-explanation-input:focus {
+    outline: none;
+    border-color: #3367D6;
+    box-shadow: 0 0 4px rgba(51, 103, 214, 0.5);
+}
+
+.un-explanation-input:read-only {
+    background-color: #f5f5f5;
+    color: #333;
+    border-color: #ccc;
+    cursor: default;
+}
+
+.un-done-btn {
+    display: block;
+    width: 60%;
+    min-width: 10rem;
+    margin: 0.375rem auto 0.625rem auto;
+    padding: 0.375rem 0.5rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    background-color: #3367D6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.un-done-btn:hover {
+    background-color: #254a9d;
 }
 
 /* ========================================
@@ -757,6 +807,155 @@ label.popover-btn img {
 .view-exam-btn:hover {
     background-color: #87a6e4;
     color: black;
+}
+
+/* ========================================
+   EXAM METADATA & RESULTS STYLES (Alphabetical)
+   ======================================== */
+
+.editable-field {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.editable-field:focus {
+    outline: none;
+    border-color: #3367D6;
+    box-shadow: 0 0 0 3px rgba(51, 103, 214, 0.1);
+}
+
+.exam-answers-section {
+    margin: 2rem auto;
+    max-width: 600px;
+    overflow-x: auto;
+}
+
+.exam-answers-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: white;
+    font-size: 0.9rem;
+}
+
+.exam-answers-table thead {
+    background-color: #37547a;
+    color: white;
+}
+
+.exam-answers-table th,
+.exam-answers-table td {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.exam-answers-table th {
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+.exam-answers-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.exam-answers-table tbody tr:hover {
+    background-color: #f0f0f0;
+}
+
+.exam-answers-table-exam {
+    font-weight: 500;
+    color: #37547a;
+}
+
+.exam-metadata-form {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 0.5rem;
+    border: 1px solid #ddd;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.location-input,
+.notes-input {
+    width: 100%;
+    max-width: 400px;
+}
+
+.location-input {
+    min-width: 200px;
+}
+
+.metadata-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+.metadata-field label {
+    font-weight: bold;
+    color: #333;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+.metadata-field .editable-field {
+    align-self: flex-start;
+}
+
+.metadata-field select,
+.metadata-field input,
+.metadata-field textarea {
+    text-align: left;
+}
+
+.metadata-value {
+    font-size: 1rem;
+    color: #555;
+    padding: 0.5rem 0;
+}
+
+.notes-input {
+    min-height: 120px;
+    padding: 0.75rem;
+    resize: vertical;
+}
+
+.score-display {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.score-input {
+    max-width: 80px;
+}
+
+.score-input.error-input {
+    border: 2px solid #d32f2f;
+    background-color: #ffebee;
+}
+
+/* Reserve space for NIHSS Score error message to prevent layout shift */
+#nihssScoreError {
+    height: 1.35rem; /* Space allocated for error message even when hidden */
+    color: #d32f2f;
+    font-size: 0.9em;
+    margin-top: 0.25rem;
+}
+
+.score-max {
+    font-size: 1rem;
+    color: #555;
+    font-weight: bold;
 }
 
 /* ========================================
