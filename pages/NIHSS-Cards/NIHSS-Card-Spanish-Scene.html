@@ -18,14 +18,22 @@
         NIHSS Cards - Spanish Scene</h1>
     </div>
 
-    <div class="page-contents">
+    <div class="page-contents-card">
+      <input type="checkbox" id="cardPopoverToggle" class="popover-toggle" />
+      <div class="popover">
+        <label for="cardPopoverToggle" class="popover-backdrop" aria-hidden></label>
+        <div class="popover-content" role="dialog" aria-modal="true">
+          <label for="cardPopoverToggle" class="popover-close" aria-hidden>✕</label>
+          <img src="../../images/Cards/2024-NIHSS-Card-Scene.png" alt="NIHSS Spanish Scene Card">
+        </div>
+      </div>
+      <label for="cardPopoverToggle" id="displayCardBtn">Display Card</label>
       <audio controls>
         <source src="../../audio/SPA/NIHSS/Spanish-NIHSS-9a.mp3" title="NIHSS 9a" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
       <p>E: Describe what you see in this picture.</p>
       <p>S: Describa lo que ve en esta imagen.</p>
-      <img src="../../images/Cards/2024-NIHSS-Card-Scene.png" alt="NIHSS Spanish Scene Card" style="width:100%; max-width:600px; display:block; margin-left:auto; margin-right:auto;">
     </div>
 
 

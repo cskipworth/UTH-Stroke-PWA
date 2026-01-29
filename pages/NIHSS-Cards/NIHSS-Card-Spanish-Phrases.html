@@ -18,21 +18,28 @@
         NIHSS Cards - Spanish Phrases</h1>
     </div>
 
-    <div class="page-contents">
+    <div class="page-contents-card">
+      <input type="checkbox" id="cardPopoverToggle" class="popover-toggle" />
+      <div class="popover">
+        <label for="cardPopoverToggle" class="popover-backdrop" aria-hidden></label>
+        <div class="popover-content" role="dialog" aria-modal="true">
+          <label for="cardPopoverToggle" class="popover-close" aria-hidden>✕</label>
+          <div class="big-phrases">
+            <p>Usted sabe cómo</p>
+            <p>Con los pies sobre la tierra</p>
+            <p>Llegué del trabjo a mis casa</p>
+            <p>Cerca de la mesa en el comedor</p>
+            <p>Anoche lo escucharon hablar en la radio</p>
+          </div>
+        </div>
+      </div>
+      <label for="cardPopoverToggle" id="displayCardBtn">Display Card</label>
       <audio controls>
         <source src="../../audio/SPA/NIHSS/Spanish-NIHSS-9c.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
       <p>E: Read these sentences.</p>
       <p>S: Lea en voz alta las siguientes frases.</p>
-    </div>
-
-    <div class="big-phrases">
-      <p>Usted sabe cómo</p>
-      <p>Con los pies sobre la tierra</p>
-      <p>Llegué del trabjo a mis casa</p>
-      <p>Cerca de la mesa en el comedor</p>
-      <p>Anoche lo escucharon hablar en la radio</p>
     </div>
 
     <div class="navbar">

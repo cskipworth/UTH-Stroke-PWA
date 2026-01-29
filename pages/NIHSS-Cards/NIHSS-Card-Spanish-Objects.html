@@ -19,7 +19,17 @@
       </h1>
     </div>
 
-    <div class="page-contents">
+    <div class="page-contents-card">
+      <!--Put the popover holding the img here!-->
+      <input type="checkbox" id="cardPopoverToggle" class="popover-toggle" />
+      <div class="popover">
+        <label for="cardPopoverToggle" class="popover-backdrop" aria-hidden></label>
+        <div class="popover-content" role="dialog" aria-modal="true">
+          <label for="cardPopoverToggle" class="popover-close" aria-hidden>✕</label>
+          <img src="../../images/Cards/2024-NIHSS-Card-Objects.png" alt="NIHSS Spanish Objects Card">
+        </div>
+      </div>
+      <label for="cardPopoverToggle" id="displayCardBtn">Display Card</label>
       <audio controls>
         <source src="../../audio/SPA/NIHSS/Spanish-NIHSS-9b-option1.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -44,15 +54,14 @@
       </audio>
       <p>E: Point to the glove. Point to the key. Point to the cactus. Point to the feather. Point to the chair. Point to the hammock.</p>
       <p>S: Señale el guante. Señale la llave. Señale el cactus. Señale la pluma. Señale la silla. Señale la hamaca.</p>
-      <img src="../../images/Cards/2024-NIHSS-Card-Objects.png" alt="NIHSS Spanish Objects Card" style="width:100%; max-width:600px; display:block; margin-left:auto; margin-right:auto;">
     </div>
 
     <div class="navbar">
-      <a class="active" href="../../index.html">
+      <a href="../../index.html">
         <img src="../../icons/home-icon.svg" alt="Home icon" style="width:50px; height:50px;">
         <p>Start An Exam</p>
       </a>
-      <a href="../nihss-cards.html">
+      <a class="active" href="../nihss-cards.html">
         <img src="../../icons/cards-empty-icon.svg" alt="Cards icon" style="width:50px; height:50px;">
         <p>NIHSS Cards</p>
       </a>

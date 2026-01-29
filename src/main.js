@@ -15,3 +15,26 @@ if ('serviceWorker' in navigator) {
 } else {
   statusEl.textContent = 'Service worker: unsupported in this browser';
 }
+
+// Swipe-to-go-back functionality for mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener('touchstart', (e) => {
+  touchStartX = e.changedTouches[0].screenX;
+}, false);
+
+document.addEventListener('touchend', (e) => {
+  touchEndX = e.changedTouches[0].screenX;
+  handleSwipe();
+}, false);
+
+function handleSwipe() {
+  const swipeThreshold = 75; // minimum distance in pixels for a swipe
+  const swipeDistance = touchStartX - touchEndX;
+  
+  // Left swipe (touchStartX > touchEndX, moving from right to left)
+  if (swipeDistance > swipeThreshold) {
+    history.back();
+  }
+}

@@ -18,7 +18,23 @@
         NIHSS Cards - Spanish Words</h1>
     </div>
 
-    <div class="page-contents">
+    <div class="page-contents-card">
+      <input type="checkbox" id="cardPopoverToggle" class="popover-toggle" />
+      <div class="popover">
+        <label for="cardPopoverToggle" class="popover-backdrop" aria-hidden></label>
+        <div class="popover-content" role="dialog" aria-modal="true">
+          <label for="cardPopoverToggle" class="popover-close" aria-hidden>✕</label>
+          <div class="big-phrases">
+            <p>Mamá</p>
+            <p>Ta te ti</p>
+            <p>Mitad y mitad</p>
+            <p>Gracias</p>
+            <p>Árbol</p>
+            <p>Futbolista</p>
+          </div>
+        </div>
+      </div>
+      <label for="cardPopoverToggle" id="displayCardBtn">Display Card</label>
       <audio controls>
         <source src="../../audio/SPA/NIHSS/Spanish-NIHSS-10-option1.mp3" title="NIHSS 10" type="audio/mpeg">
         Your browser does not support the audio element.
@@ -37,15 +53,6 @@
       </audio>
       <p>E (to family/friend): Does their speech sound normal to you?</p>
       <p>S (a la familia/amigo): ¿La manera como habla (el paciente) le suena normal?</p>
-    </div>
-
-    <div class="big-phrases">
-      <p>Mamá</p>
-      <p>Ta te ti</p>
-      <p>Mitad y mitad</p>
-      <p>Gracias</p>
-      <p>Árbol</p>
-      <p>Futbolista</p>
     </div>
 
     <div class="navbar">

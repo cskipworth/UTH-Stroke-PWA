@@ -2,6 +2,16 @@
     box-sizing: border-box;
 }
 
+@media only screen and (orientation: portrait) {
+    #turn { display: block;}
+    #rotate-required-container { display: none;}
+}
+
+@media only screen and (orientation: landscape) {
+    #turn { display: none;}
+    #rotate-required-container { display: block;}
+}
+
 body {
     height: 100%;
     margin: 0;
@@ -171,6 +181,25 @@ h1 {
     flex-wrap: wrap;
 }
 
+.page-contents-card {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    padding: 2rem 1.5rem 2rem 1.5rem;
+    row-gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.page-contents p, .page-contents-card p, .page-contents-under-sticky p {
+    display: block;
+    width: 100%;
+    max-width: 95%;
+    padding: 0 1rem;
+    text-align: center;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
 .page-contents-under-sticky {
     display: grid;
     place-items: center;
@@ -181,7 +210,7 @@ h1 {
     flex-wrap: wrap;
 }
 
-.page-contents audio {
+.page-contents audio, .page-contents-card audio, .page-contents-under-sticky audio {
     max-width: 30rem;
     width: 100%;
 }
@@ -195,7 +224,7 @@ h1 {
     margin: auto;
 }
 
-.page-contents div {
+.page-contents div, .page-contents-card div, .page-contents-under-sticky div {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -346,18 +375,30 @@ label.popover-btn:focus {
 }
 
 .popover {
-    position: fixed;
-    inset: 0;
-    display: none;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    border: none;
+    padding: 1rem;
+    display: none !important;
     align-items: center;
     justify-content: center;
     background: rgba(0,0,0,0.5);
-    z-index: 1000;
-    padding: 1rem;
+    z-index: 3000;
+    box-sizing: border-box;
+    transform: none !important;
 }
 
 .popover .popover-backdrop { 
-    position: absolute; inset: 0; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
 .popover .popover-content {
@@ -389,7 +430,7 @@ label.popover-btn:focus {
 }
 
 .popover-toggle:checked ~ .popover { 
-    display: flex; 
+    display: flex !important; 
 }
 /* Audio and paragraph styling for exam slides */
 audio {
@@ -627,4 +668,41 @@ audio {
     max-height: 60vh;
     width: auto;
     object-fit: contain;
+}
+
+/* Card Display Button Styling */
+#displayCardBtn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #3367D6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+#displayCardBtn:hover {
+    background-color: #2651b8;
+}
+
+/* Card popover image styling */
+.popover .popover-content img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: calc(85vh - 3rem);
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+/* Card popover big-phrases styling */
+.popover .popover-content .big-phrases p {
+    padding: 1rem;
+    margin: 0.75rem 0;
+    background-color: #f5f5f5;
+    border-radius: 0.5rem;
+    border-left: 4px solid #3367D6;
 }
