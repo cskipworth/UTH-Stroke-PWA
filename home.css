@@ -492,6 +492,83 @@ header {
     box-sizing: border-box;
 }
 
+/* More Info Page Styles */
+.section {
+    margin-bottom: 30px;
+}
+
+.section h2 {
+    color: #007bff;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.guidelines-links {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.guidelines-links p {
+    margin: 10px 0;
+}
+
+.guidelines-links a {
+    color: #007bff;
+}
+
+.guidelines-links a:hover {
+    text-decoration: underline;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f0f0f0;
+}
+
+.dosing-info {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-left: 4px solid #007bff;
+    margin: 15px 0;
+}
+
+.contact-section {
+    background-color: #e8f4f8;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+.contact-section h2 {
+    margin-top: 0;
+}
+
+.contact-section p a {
+    color: #0d3c6e;
+    background-color: whitesmoke;
+
+}
+
 /* ========================================
    POPOVER STYLES (Alphabetical)
    ======================================== */
