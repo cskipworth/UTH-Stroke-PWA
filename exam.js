@@ -366,6 +366,8 @@ function optionsListener() {
             if (parentTile) parentTile.classList.add('answered');
             updateScoreDisplays();
             updateNavButtons();
+            // Update missing entries display if on SPA-SQ page
+            updateMissingEntriesDisplay();
         });
     });
 }
@@ -454,6 +456,112 @@ function updateResultsBreakdownAlways() {
     });
 
     breakdown.innerHTML = lines.join('\n');
+}
+
+/**
+ * Define all required exam questions that must be answered before finalizing the exam
+ * These are all questions with option buttons from NIHSS and Post-NIHSS exams
+ */
+const REQUIRED_EXAM_QUESTIONS = [
+    // SPA-NIHSS.html questions
+    { id: '1a', title: '1a. Level of consciousness', exam: 'SPA-NIHSS' },
+    { id: '1b', title: '1b. Level of consciousness questions', exam: 'SPA-NIHSS' },
+    { id: '1c', title: '1c. Level of consciousness questions', exam: 'SPA-NIHSS' },
+    { id: '2: ', title: '2. Best gaze', exam: 'SPA-NIHSS' },
+    { id: '3', title: '3. Visual', exam: 'SPA-NIHSS' },
+    { id: '4', title: '4. Facial palsy', exam: 'SPA-NIHSS' },
+    { id: '5', title: '5a. Motor: left arm', exam: 'SPA-NIHSS' },
+    { id: '5b', title: '5b. Motor: right arm', exam: 'SPA-NIHSS' },
+    { id: '6a', title: '6a. Motor: left leg', exam: 'SPA-NIHSS' },
+    { id: '6b', title: '6b. Motor: right leg', exam: 'SPA-NIHSS' },
+    { id: '7', title: '7. Limb ataxia', exam: 'SPA-NIHSS' },
+    { id: '8', title: '8. Sensory', exam: 'SPA-NIHSS' },
+    { id: '9', title: '9. Best language', exam: 'SPA-NIHSS' },
+    { id: '10', title: '10. Dysarthria', exam: 'SPA-NIHSS' },
+    { id: '11', title: '11. Extinction and Inattention', exam: 'SPA-NIHSS' },
+    // SPA-Post-NIHSS.html questions
+    { id: '12', title: '12. Cough', exam: 'SPA-Post-NIHSS' },
+    { id: '13', title: '13. Dysphagia', exam: 'SPA-Post-NIHSS' },
+    { id: '14', title: '14. Gait/Trunk Ataxia and Limb Ataxia', exam: 'SPA-Post-NIHSS' }
+];
+
+/**
+ * Check if all required exam questions have been answered
+ * @returns {Object} { allAnswered: boolean, missingQuestions: Array<{id, title, exam}> }
+ */
+function checkAllQuestionsAnswered() {
+    const answers = getAnswersFromStorage();
+    const missingQuestions = [];
+    
+    REQUIRED_EXAM_QUESTIONS.forEach(question => {
+        if (!answers[question.id]) {
+            missingQuestions.push(question);
+        }
+    });
+    
+    return {
+        allAnswered: missingQuestions.length === 0,
+        missingQuestions: missingQuestions
+    };
+}
+
+/**
+ * Update the missing entries display and button state
+ */
+function updateMissingEntriesDisplay() {
+    const { allAnswered, missingQuestions } = checkAllQuestionsAnswered();
+    const finalizeBtn = document.querySelector('.complete-exam-btn');
+    const missingEntriesDiv = document.querySelector('.missing-entries-container');
+    const noticeMessage = document.querySelector('.button-notice-message');
+    
+    if (!finalizeBtn && !missingEntriesDiv && !noticeMessage) return;
+    
+    // Update button state
+    if (finalizeBtn) {
+        finalizeBtn.disabled = !allAnswered;
+        finalizeBtn.style.opacity = allAnswered ? '1' : '0.5';
+        finalizeBtn.style.cursor = allAnswered ? 'pointer' : 'not-allowed';
+    }
+    
+    // Update notice message visibility
+    if (noticeMessage) {
+        noticeMessage.style.display = allAnswered ? 'none' : 'block';
+    }
+    
+    // Update missing entries display
+    if (missingEntriesDiv) {
+        if (allAnswered) {
+            missingEntriesDiv.style.display = 'none';
+        } else {
+            missingEntriesDiv.style.display = 'block';
+            
+            // Build the missing entries list with links
+            let html = '<h3>Missing Entries</h3><ul>';
+            missingQuestions.forEach(question => {
+                const pageFile = question.exam === 'SPA-NIHSS' ? 'SPA-NIHSS.html' : 'SPA-Post-NIHSS.html';
+                const questionId = question.id;
+                html += `<li><a href="${pageFile}#${questionId}" class="missing-entry-link" data-question-id="${questionId}" data-exam="${question.exam}">${question.title}</a></li>`;
+            });
+            html += '</ul>';
+            missingEntriesDiv.innerHTML = html;
+            
+            // Add click handlers to links
+            missingEntriesDiv.querySelectorAll('.missing-entry-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const questionId = link.getAttribute('data-question-id');
+                    const exam = link.getAttribute('data-exam');
+                    const pageFile = exam === 'SPA-NIHSS' ? 'SPA-NIHSS.html' : 'SPA-Post-NIHSS.html';
+                    
+                    // Store the current question ID so the target page can scroll to it
+                    sessionStorage.setItem('scrollToQuestionId', questionId);
+                    
+                    // Navigate to the page
+                    window.location.href = pageFile;
+                });
+            });
+        }
+    }
 }
 
 function updateNavButtons() {
@@ -545,5 +653,40 @@ updateNavButtons();
 // Initialize results breakdown to always show
 updateResultsBreakdownAlways();
 
+// Check if we should scroll to a specific question (from missing entries link)
+const scrollToQuestionId = sessionStorage.getItem('scrollToQuestionId');
+if (scrollToQuestionId) {
+    // Find the slide with the matching question ID and scroll to it
+    const targetSlide = document.querySelector(`[data-question-id="${scrollToQuestionId}"]`);
+    if (targetSlide) {
+        // Use requestAnimationFrame to ensure DOM is fully rendered before scrolling
+        requestAnimationFrame(() => {
+            targetSlide.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+    }
+    // Clear the session storage so we don't keep scrolling on page refresh
+    sessionStorage.removeItem('scrollToQuestionId');
+}
+
+// Add a hook to update missing entries display when user returns to SPA-SQ page
+window.addEventListener('beforeunload', function() {
+    // Store state before leaving the page
+    if (currentExamName === 'SPA-SQ') {
+        // The display will be refreshed when the page loads
+    }
+});
+
+// Also update when the page is about to become visible (from browser back button)
+if (document.hidden !== undefined) {
+    document.addEventListener('visibilitychange', function() {
+        if (!document.hidden && currentExamName === 'SPA-SQ') {
+            // Page is becoming visible - refresh the display
+            updateMissingEntriesDisplay();
+        }
+    });
+}
+
 // Expose completeExam for window scope
 window.completeExam = completeExam;
+window.checkAllQuestionsAnswered = checkAllQuestionsAnswered;
+window.updateMissingEntriesDisplay = updateMissingEntriesDisplay;

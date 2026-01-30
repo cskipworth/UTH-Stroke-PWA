@@ -184,13 +184,42 @@
               <p>S: ¿En qué trabaja?</p>
             </div>
         </div>
+        <div class="missing-entries-container">
+        </div>
         <div class="exam-complete-container">
           <button class="complete-exam-btn" onclick="completeExam('SPA-SQ', '../score-results.html')">Finalize Exam Details</button>
+          <div class="button-notice-message" style="display: none;">Answer all questions before continuing.</div>
         </div>
       </div>
   </div>
 
     <script type="module" src="../../exam.js"></script>
+
+    <script>
+      // Initialize the missing entries display when the page loads
+      function initMissingEntries() {
+        if (typeof updateMissingEntriesDisplay === 'function') {
+          updateMissingEntriesDisplay();
+          return true;
+        }
+        return false;
+      }
+      
+      // Try to initialize on DOMContentLoaded
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+          // Try immediately, then with a delay if needed
+          if (!initMissingEntries()) {
+            setTimeout(initMissingEntries, 100);
+          }
+        });
+      } else {
+        // Page is already loaded, initialize immediately
+        if (!initMissingEntries()) {
+          setTimeout(initMissingEntries, 100);
+        }
+      }
+    </script>
 
     <div class="exam-nav-links">
       <a href="SPA-Post-NIHSS.html" class="prev-exam">< Spanish Post-NIHSS</a>

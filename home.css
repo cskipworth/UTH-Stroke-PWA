@@ -165,21 +165,36 @@ header {
     font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
 }
 
-.complete-exam-btn:hover {
+.complete-exam-btn:hover:not(:disabled) {
     background-color: #1e6b2f;
     transform: scale(1.05);
 }
 
-.complete-exam-btn:active {
+.complete-exam-btn:active:not(:disabled) {
     transform: scale(0.98);
+}
+
+.complete-exam-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.button-notice-message {
+    margin-top: 0.75rem;
+    color: #d9534f;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
 }
 
 .exam-complete-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     margin: 3rem auto 2rem;
     padding: 2rem;
 }
@@ -956,6 +971,65 @@ label.popover-btn img {
     font-size: 1rem;
     color: #555;
     font-weight: bold;
+}
+
+/* Missing Entries Container */
+.missing-entries-container {
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #f5f3ef;
+    border-left: 4px solid #d4cfc9;
+    border-radius: 4px;
+    max-width: 600px;
+    text-align: center;
+}
+
+.missing-entries-container h3 {
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+    color: #6b6461;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.missing-entries-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.missing-entries-container li {
+    margin-bottom: 0;
+}
+
+.missing-entry-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #ff9800;
+    border: 1px solid #f57c00;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.missing-entry-link:hover {
+    background-color: #f57c00;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.missing-entry-link:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* ========================================
