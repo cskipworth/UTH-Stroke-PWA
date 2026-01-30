@@ -1256,47 +1256,49 @@ label.popover-btn img {
 
     /* Popover mobile adjustments */
     .popover .popover-content {
-        max-width: 95vw;
-        max-height: 90vh;
+        max-width: 98vw;
+        max-height: 95vh;
         width: 100%;
+        height: 100%;
         overflow: hidden;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 0.5rem;
+        padding: 0;
     }
 
     .popover .popover-content .big-phrases {
-        max-width: 95vw;
-        max-height: calc(90vh - 2rem);
+        max-width: 98vw;
+        max-height: calc(95vh - 2rem);
         overflow: hidden;
         margin: 0;
     }
 
     /* Portrait images - shrink minimally to fit without cutoff */
     .popover .popover-content img.portrait {
-        max-height: calc(90vh - 4rem);
-        max-width: 95vw;
-        width: auto;
-        height: auto;
+        max-height: calc(95vh - 2rem);
+        max-width: 98vw;
+        width: 100%;
+        height: 100%;
         object-fit: contain;
     }
 
     /* Landscape images - rotate 90deg and maximize fit */
     .popover .popover-content img.landscape {
-        max-height: calc(90vh - 4rem);
-        max-width: 95vw;
-        width: auto;
-        height: auto;
+        max-height: 98vw;
+        max-width: calc(95vh - 2rem);
+        width: 100%;
+        height: 100%;
         transform: rotate(90deg);
         object-fit: contain;
     }
 
     /* Fallback for images without specific class */
     .popover .popover-content img {
-        max-height: calc(90vh - 2rem);
-        max-width: 95vw;
-        width: auto;
-        height: auto;
+        max-height: calc(95vh - 2rem);
+        max-width: 98vw;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
