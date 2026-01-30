@@ -1032,6 +1032,129 @@ label.popover-btn img {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+/* Share Exam Button in Table */
+.share-exam-btn {
+    padding: 0.5rem 1rem;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    transition: background-color 0.2s ease;
+}
+
+.share-exam-btn:hover {
+    background-color: #0052a3;
+}
+
+.share-exam-btn:active {
+    transform: scale(0.98);
+}
+
+/* Share Modal Overlay */
+.share-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 1rem;
+}
+
+.share-modal-content {
+    background-color: white;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.share-modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.share-modal-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.share-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.share-modal-close:hover {
+    color: #000;
+}
+
+.share-modal-text {
+    padding: 1.5rem;
+    overflow-y: auto;
+    flex: 1;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.share-modal-actions {
+    padding: 1rem 1.5rem;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    border-top: 1px solid #eee;
+    flex-wrap: wrap;
+}
+
+.share-modal-btn {
+    padding: 0.6rem 1.25rem;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.share-modal-btn:hover {
+    background-color: #0052a3;
+}
+
+.share-modal-close-btn {
+    background-color: #999;
+}
+
+.share-modal-close-btn:hover {
+    background-color: #666;
+}
+
 /* ========================================
    MOBILE-ONLY STYLING (max-width: 768px)
    ======================================== */

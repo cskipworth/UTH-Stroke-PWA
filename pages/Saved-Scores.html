@@ -42,6 +42,7 @@
       </a>
     </div>
 
+    <script src="../src/shared-exam-utils.js"></script>
     <script>
       /**
        * Get all completed exams from localStorage history
@@ -59,15 +60,14 @@
        * Format date for display
        */
       function formatDate(isoString) {
-        const date = new Date(isoString);
-        return date.toLocaleString();
+        return formatDateForDisplay(isoString);
       }
 
       /**
        * Format exam name for display
        */
       function formatExamName(examName) {
-        return examName.replace(/-/g, ' - ').replace(/SPA/g, 'Spanish');
+        return formatExamNameForDisplay(examName);
       }
 
       /**
@@ -116,6 +116,7 @@
 
         if (exam.answers && Object.keys(exam.answers).length > 0) {
           Object.entries(exam.answers).forEach(([questionId, answer]) => {
+            const questionTitle = getQuestionTitle(questionId);
             let answerDetail = `<em>Answer: ${answer.text}</em>`;
             
             // Add UN reason text if it exists
@@ -125,7 +126,8 @@
             
             details += `
               <div class="answer-item">
-                <strong>${questionId}:</strong> ${answer.points} point${answer.points !== 1 ? 's' : ''}<br>
+                <strong>${questionTitle}</strong><br>
+                ${answer.points} point${answer.points !== 1 ? 's' : ''}<br>
                 ${answerDetail}
               </div>
             `;
@@ -221,6 +223,95 @@
       }
 
       /**
+       * Generate text-only version of exam results for sharing
+       */
+      function generateExamShareText(examID) {
+        const history = getExamHistory();
+        const exam = history.find(e => e.examID === examID);
+        
+        if (!exam) return '';
+
+        const allMetadata = JSON.parse(localStorage.getItem('examMetadata')) || {};
+        const metadata = allMetadata[examID] || {};
+
+        return generateShareText(exam, metadata);
+      }
+
+      /**
+       * Share exam from the table view (button in action column)
+       */
+      function shareExamFromList(examID) {
+        const text = generateExamShareText(examID);
+        openShareModal(text, examID);
+      }
+
+      /**
+       * Share exam from the modal view (button next to heading)
+       */
+      function shareExamFromModal(examID) {
+        const text = generateExamShareText(examID);
+        openShareModal(text, examID);
+      }
+
+      /**
+       * Open share modal with the exam text
+       */
+      function openShareModal(text, examID) {
+        const modal = document.createElement('div');
+        modal.className = 'share-modal-overlay';
+        modal.id = 'share-results-modal';
+
+        const content = document.createElement('div');
+        content.className = 'share-modal-content';
+
+        content.innerHTML = `
+          <div class="share-modal-header">
+            <h3>Share Exam Results</h3>
+            <button class="share-modal-close" onclick="document.getElementById('share-results-modal').remove()">✕</button>
+          </div>
+          <div class="share-modal-text">${text.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</div>
+          <div class="share-modal-actions">
+            <button class="share-modal-btn" onclick="copyShareText('${examID}')">Copy to Clipboard</button>
+            <button class="share-modal-btn" onclick="downloadShareText('${examID}')">Download as Text</button>
+            <button class="share-modal-btn share-modal-close-btn" onclick="document.getElementById('share-results-modal').remove()">Close</button>
+          </div>
+        `;
+
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal) {
+            modal.remove();
+          }
+        });
+
+        modal.appendChild(content);
+        document.body.appendChild(modal);
+      }
+
+      /**
+       * Copy share text to clipboard
+       */
+      function copyShareText(examID) {
+        const text = generateExamShareText(examID);
+        copyToClipboard(text).then(() => {
+          alert('Results copied to clipboard!');
+        }).catch(err => {
+          console.error('Failed to copy:', err);
+          alert('Failed to copy to clipboard');
+        });
+      }
+
+      /**
+       * Download share text as file
+       */
+      function downloadShareText(examID) {
+        const history = getExamHistory();
+        const exam = history.find(e => e.examID === examID);
+        const text = generateExamShareText(examID);
+        
+        downloadTextAsFile(text, `stroke-assessment-${examID}.txt`);
+      }
+
+      /**
        * Render the scores list
        */
       function renderScores() {
@@ -263,6 +354,7 @@
               <td class="scores-table-date">${formatDate(exam.completedAt)}</td>
               <td class="scores-table-action">
                 <button class="view-exam-btn" onclick="viewExamDetails('${exam.examID}')">View</button>
+                <button class="share-exam-btn" onclick="shareExamFromList('${exam.examID}')">Share</button>
               </td>
             </tr>
           `;
