@@ -596,6 +596,7 @@ tr:hover {
     z-index: 3000;
     box-sizing: border-box;
     transform: none !important;
+    contain: layout !important;
 }
 
 .popover .popover-backdrop {
@@ -1265,7 +1266,7 @@ label.popover-btn img {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 0;
+        padding: 0 0.5rem;
     }
 
     .popover .popover-content .big-phrases {
