@@ -124,6 +124,8 @@ header {
 
 #displayCardBtn:hover {
     background-color: #2d4563;
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 /* ========================================
@@ -144,6 +146,8 @@ header {
 
 .clear-history-btn:hover {
     background-color: #b71c1c;
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.5rem 1rem rgba(211, 47, 47, 0.3);
 }
 
 .clear-history-container {
@@ -170,11 +174,13 @@ header {
 
 .complete-exam-btn:hover:not(:disabled) {
     background-color: #1e6b2f;
-    transform: scale(1.05);
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.5rem 1.5rem rgba(43, 138, 62, 0.4);
 }
 
 .complete-exam-btn:active:not(:disabled) {
-    transform: scale(0.98);
+    transform: translateY(0);
+    box-shadow: 0 0.25rem 0.75rem rgba(43, 138, 62, 0.3);
 }
 
 .complete-exam-btn:disabled {
@@ -267,6 +273,8 @@ header {
 .exam-nav-links a:hover {
     background-color: #6b8fba;
     color: black;
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 /* ========================================
@@ -292,6 +300,8 @@ header {
 
 .modal-button:hover {
     opacity: 0.9;
+    transform: translateY(-0.125rem);
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
 }
 
 .modal-close-btn {
@@ -418,11 +428,13 @@ header {
     color: white;
     border: none;
     border-radius: 0.25rem;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .un-done-btn:hover {
     background-color: #2d4563;
+    transform: translateY(-0.125rem);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
 }
 
 /* ========================================
@@ -474,6 +486,9 @@ header {
 
 .page-contents div a:hover {
     color: black;
+    transform: translateY(-0.125rem);
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
 }
 
 .page-contents img {
@@ -490,6 +505,93 @@ header {
     text-align: center;
     margin: 0 auto;
     box-sizing: border-box;
+}
+
+/* Primary Exam Section Styles */
+.primary-exam-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center;
+    place-items: center;
+    place-content: center;
+    gap: 1rem;
+    position: relative;
+    flex-basis: 100%;
+}
+
+.start-here-badge {
+    color: #2b8a3e;
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    background: none;
+    padding: 0;
+}
+
+.primary-exam-btn {
+    display: inline-block;
+    padding: 1.5rem 3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: #2b8a3e;
+    color: white;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 0.5rem 1.5rem rgba(43, 138, 62, 0.4);
+    min-width: 12rem;
+}
+
+.primary-exam-btn:hover {
+    background-color: #1e6b2f;
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.75rem 2rem rgba(43, 138, 62, 0.5);
+}
+
+.primary-exam-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 0.25rem 0.75rem rgba(43, 138, 62, 0.3);
+}
+
+.primary-exam-description {
+    font-size: 1rem;
+    color: #666;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Secondary Exams Section Styles */
+.secondary-exams {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 0.75rem;
+    justify-content: center;
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+.secondary-exams a {
+    padding: 0.75rem 1rem;
+    background-color: #37547a;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.secondary-exams a:hover {
+    background-color: #5a7fa8;
+    transform: translateY(-0.125rem);
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
+}
+
+.secondary-exams a:active {
+    transform: translateY(0);
+    background-color: #2d4563;
 }
 
 /* More Info Page Styles */
