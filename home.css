@@ -526,6 +526,10 @@ table {
     margin: 20px 0;
 }
 
+.section table {
+    width: calc(100% + 3rem);
+}
+
 th, td {
     border: 1px solid #ddd;
     padding: 12px;
@@ -1237,6 +1241,15 @@ label.popover-btn img {
    ======================================== */
 
 @media only screen and (max-width: 768px) {
+    .guidelines-links {
+        margin-left: 5px;
+        margin-bottom: 15px;
+    }
+
+    .guidelines-links p {
+        margin: 5px 0;
+    }
+
     .popover .popover-content {
         max-width: 95vw;
         max-height: 90vh;
