@@ -46,7 +46,7 @@ header {
 
 [popover] {
     padding: 1rem;
-    border: 1px solid black;
+    border: 0.06rem solid black;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
     inset: auto auto auto 100%;
@@ -54,7 +54,7 @@ header {
 }
 
 [popover]:popover-open {
-    border-color: #007bff;
+    border-color: #2d4563;
     margin-top: 0;
 }
 
@@ -112,18 +112,18 @@ header {
 
 #displayCardBtn {
     display: inline-block;
-    padding: 10px 20px;
-    margin-bottom: 20px;
-    font-size: 16px;
+    padding: 0.62rem 1.25rem;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
     cursor: pointer;
-    background-color: #3367D6;
+    background-color: #5a7fa8;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 0.25rem;
 }
 
 #displayCardBtn:hover {
-    background-color: #2651b8;
+    background-color: #2d4563;
 }
 
 /* ========================================
@@ -209,7 +209,7 @@ header {
     max-width: 37.5rem;
     margin: 10rem auto auto auto;
     overflow: visible;
-    border: 1px solid #ccc;
+    border: 0.06rem solid #ccc;
     padding: 1.25rem;
 }
 
@@ -231,10 +231,10 @@ header {
     background-color: white;
     padding: 2rem;
     border-radius: 1rem;
-    max-width: 600px;
+    max-width: 37.5rem;
     max-height: 80vh;
     overflow-y: auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.25rem 0.38rem rgba(0, 0, 0, 0.1);
     position: relative;
 }
 
@@ -265,7 +265,7 @@ header {
 }
 
 .exam-nav-links a:hover {
-    background-color: #87a6e4;
+    background-color: #6b8fba;
     color: black;
 }
 
@@ -303,7 +303,7 @@ header {
 }
 
 .modal-edit-btn {
-    background-color: #3367D6;
+    background-color: #5a7fa8;
 }
 
 /* ========================================
@@ -367,8 +367,8 @@ header {
     display: block;
     width: 80%;
     min-width: 17.5rem;
-    margin: 0.625rem auto;
-    padding: 0.625rem;
+    margin: 0.62rem auto;
+    padding: 0.62rem;
     cursor: pointer;
     background-color: #37547a;
     color: white;
@@ -383,12 +383,12 @@ header {
     display: block;
     width: 80%;
     min-width: 17.5rem;
-    margin: 0.625rem auto;
-    padding: 0.625rem;
+    margin: 0.62rem auto;
+    padding: 0.62rem;
     font-family: inherit;
     font-size: 1rem;
-    border: 1px solid #999;
-    border-radius: 4px;
+    border: 0.06rem solid #999;
+    border-radius: 0.25rem;
     resize: vertical;
     min-height: 6rem;
 }
@@ -396,7 +396,7 @@ header {
 .un-explanation-input:focus {
     outline: none;
     border-color: #3367D6;
-    box-shadow: 0 0 4px rgba(51, 103, 214, 0.5);
+    box-shadow: 0 0 0.25rem rgba(51, 103, 214, 0.5);
 }
 
 .un-explanation-input:read-only {
@@ -410,19 +410,19 @@ header {
     display: block;
     width: 60%;
     min-width: 10rem;
-    margin: 0.375rem auto 0.625rem auto;
-    padding: 0.375rem 0.5rem;
+    margin: 0.38rem auto 0.62rem auto;
+    padding: 0.38rem 0.5rem;
     font-size: 0.85rem;
     cursor: pointer;
-    background-color: #3367D6;
+    background-color: #5a7fa8;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     transition: background-color 0.2s ease;
 }
 
 .un-done-btn:hover {
-    background-color: #254a9d;
+    background-color: #2d4563;
 }
 
 /* ========================================
@@ -494,50 +494,50 @@ header {
 
 /* More Info Page Styles */
 .section {
-    margin-bottom: 30px;
+    margin-bottom: 1.875rem;
+    text-align: center;
+    place-items: center;
 }
 
 .section h2 {
-    color: #007bff;
-    margin-top: 20px;
-    margin-bottom: 15px;
+    color: #5a7fa8;
+    margin-top: 1.25rem;
+    margin-bottom: 0.94rem;
 }
 
 .guidelines-links {
-    margin-left: 20px;
-    margin-bottom: 20px;
+    margin: 1.25rem;
 }
 
 .guidelines-links p {
-    margin: 10px 0;
+    margin: 0.62rem 0;
+    white-space: nowrap;
 }
 
 .guidelines-links a {
-    color: #007bff;
+    color: #5a7fa8;
 }
 
 .guidelines-links a:hover {
-    text-decoration: underline;
+    color: black;
+    text-decoration: none;
 }
 
 table {
-    width: 100%;
+    width: 80%;
+    max-width: 50rem;
     border-collapse: collapse;
-    margin: 20px 0;
-}
-
-.section table {
-    width: calc(100% + 3rem);
+    margin: 1.25rem 0;
 }
 
 th, td {
-    border: 1px solid #ddd;
-    padding: 12px;
+    border: 0.06rem solid #ddd;
+    padding: 0.75rem;
     text-align: left;
 }
 
 th {
-    background-color: #007bff;
+    background-color: #2d4563;
     color: white;
     font-weight: bold;
 }
@@ -552,15 +552,17 @@ tr:hover {
 
 .dosing-info {
     background-color: #f9f9f9;
-    padding: 15px;
-    border-left: 4px solid #007bff;
-    margin: 15px 0;
+    padding: 0.94rem;
+    border-left: 0.25rem solid #5a7fa8;
+    margin: 0.94rem 0;
 }
 
 .contact-section {
     background-color: #e8f4f8;
-    padding: 15px;
-    margin-top: 30px;
+    padding: 0.94rem;
+    margin-top: 1.875rem;
+    place-items: center;
+    text-align: center;
 }
 
 .contact-section h2 {
@@ -568,9 +570,10 @@ tr:hover {
 }
 
 .contact-section p a {
-    color: #0d3c6e;
-    background-color: whitesmoke;
-
+    color: #37547a;
+    place-items: center;
+    text-decoration: underline;
+    text-align: center;
 }
 
 /* ========================================
@@ -624,7 +627,7 @@ tr:hover {
     overflow: auto;
     padding: 1.25rem;
     border-radius: 0.5rem;
-    box-shadow: 0 0.625rem 1.875rem rgba(0,0,0,0.3);
+    box-shadow: 0 0.62rem 1.88rem rgba(0,0,0,0.3);
     position: relative;
 }
 
@@ -633,7 +636,7 @@ tr:hover {
     margin: 0.75rem 0;
     background-color: #f5f5f5;
     border-radius: 0.5rem;
-    border-left: 4px solid #3367D6;
+    border-left: 0.25rem solid #5a7fa8;
 }
 
 .popover .popover-content img {
@@ -673,7 +676,7 @@ label.popover-btn {
 }
 
 label.popover-btn:focus {
-    outline: 3px solid rgba(135,166,228,0.6);
+    outline: 0.19rem solid rgba(135,166,228,0.6);
     outline-offset: 0.125rem;
     border-radius: 50%;
 }
@@ -722,7 +725,7 @@ label.popover-btn img {
 .scores-table th,
 .scores-table td {
     padding: 1rem;
-    border: 1px solid #ddd;
+    border: 0.06rem solid #ddd;
 }
 
 .scores-table th {
@@ -730,7 +733,7 @@ label.popover-btn img {
 }
 
 .scores-table td {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 0.06rem solid #ddd;
 }
 
 .scores-table-action {
@@ -797,13 +800,13 @@ label.popover-btn img {
     background-color: #f5f5f5;
     padding: 1rem;
     border-radius: 0.5rem;
-    max-height: 400px;
+    max-height: 25rem;
     overflow-y: auto;
 }
 
 .answer-item {
     margin-bottom: 1rem;
-    border-left: 4px solid #37547a;
+    border-left: 0.25rem solid #37547a;
     padding-left: 1rem;
 }
 
@@ -833,8 +836,8 @@ label.popover-btn img {
 }
 
 .title-prompt {
-    border-top: 1px solid white;
-    background-color: #87a6e4;
+    border-top: 0.06rem solid white;
+    background-color: #6b8fba;
     display: grid;
     place-items: center;
     text-align: center;
@@ -843,8 +846,8 @@ label.popover-btn img {
 }
 
 .title-prompt-exam {
-    border-top: 1px solid white;
-    background-color: #87a6e4;
+    border-top: 0.06rem solid white;
+    background-color: #6b8fba;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -861,8 +864,8 @@ label.popover-btn img {
 }
 
 .title-prompt-sticky {
-    border-top: 1px solid white;
-    background-color: #87a6e4;
+    border-top: 0.06rem solid white;
+    background-color: #6b8fba;
     display: grid;
     place-items: center;
     text-align: center;
@@ -901,7 +904,7 @@ label.popover-btn img {
 }
 
 .view-exam-btn:hover {
-    background-color: #87a6e4;
+    background-color: #6b8fba;
     color: black;
 }
 
@@ -911,7 +914,7 @@ label.popover-btn img {
 
 .editable-field {
     padding: 0.5rem 0.75rem;
-    border: 1px solid #ccc;
+    border: 0.0625rem solid #ccc;
     border-radius: 0.25rem;
     font-size: 1rem;
     font-family: inherit;
@@ -919,13 +922,13 @@ label.popover-btn img {
 
 .editable-field:focus {
     outline: none;
-    border-color: #3367D6;
-    box-shadow: 0 0 0 3px rgba(51, 103, 214, 0.1);
+    border-color: #5a7fa8;
+    box-shadow: 0 0 0 0.19rem rgba(90, 127, 168, 0.1);
 }
 
 .exam-answers-section {
     margin: 2rem auto;
-    max-width: 600px;
+    max-width: 37.5rem;
     overflow-x: auto;
 }
 
@@ -945,7 +948,7 @@ label.popover-btn img {
 .exam-answers-table th,
 .exam-answers-table td {
     padding: 0.75rem;
-    border: 1px solid #ddd;
+    border: 0.06rem solid #ddd;
     text-align: left;
 }
 
@@ -968,12 +971,12 @@ label.popover-btn img {
 }
 
 .exam-metadata-form {
-    max-width: 600px;
+    max-width: 37.5rem;
     margin: 2rem auto;
     padding: 2rem;
     background-color: #f9f9f9;
     border-radius: 0.5rem;
-    border: 1px solid #ddd;
+    border: 0.06rem solid #ddd;
     width: 100%;
     box-sizing: border-box;
 }
@@ -981,11 +984,11 @@ label.popover-btn img {
 .location-input,
 .notes-input {
     width: 100%;
-    max-width: 400px;
+    max-width: 25rem;
 }
 
 .location-input {
-    min-width: 200px;
+    min-width: 12.5rem;
 }
 
 .metadata-field {
@@ -1020,7 +1023,7 @@ label.popover-btn img {
 }
 
 .notes-input {
-    min-height: 120px;
+    min-height: 7.5rem;
     padding: 0.75rem;
     resize: vertical;
 }
@@ -1032,11 +1035,11 @@ label.popover-btn img {
 }
 
 .score-input {
-    max-width: 80px;
+    max-width: 5rem;
 }
 
 .score-input.error-input {
-    border: 2px solid #d32f2f;
+    border: 0.125rem solid #d32f2f;
     background-color: #ffebee;
 }
 
@@ -1059,9 +1062,9 @@ label.popover-btn img {
     margin: 2rem auto;
     padding: 1.5rem;
     background-color: #f5f3ef;
-    border-left: 4px solid #d4cfc9;
-    border-radius: 4px;
-    max-width: 600px;
+    border-left: 0.25rem solid #d4cfc9;
+    border-radius: 0.25rem;
+    max-width: 37.5rem;
     text-align: center;
 }
 
@@ -1094,23 +1097,23 @@ label.popover-btn img {
     font-size: 0.9rem;
     padding: 0.6rem 1rem;
     display: inline-block;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     background-color: #ff9800;
-    border: 1px solid #f57c00;
+    border: 0.06rem solid #f57c00;
     transition: all 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
 
 .missing-entry-link:hover {
     background-color: #f57c00;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-    transform: translateY(-2px);
+    box-shadow: 0 0.19rem 0.38rem rgba(0, 0, 0, 0.15);
+    transform: translateY(-0.12rem);
 }
 
 .missing-entry-link:active {
     transform: translateY(0);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.06rem 0.12rem rgba(0, 0, 0, 0.1);
 }
 
 /* Share Exam Button in Table */
@@ -1119,7 +1122,7 @@ label.popover-btn img {
     background-color: #0066cc;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     font-size: 0.9rem;
     font-weight: 500;
     cursor: pointer;
@@ -1152,19 +1155,19 @@ label.popover-btn img {
 
 .share-modal-content {
     background-color: white;
-    border-radius: 8px;
-    max-width: 600px;
+    border-radius: 0.5rem;
+    max-width: 37.5rem;
     width: 100%;
     max-height: 80vh;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.2);
     position: relative;
 }
 
 .share-modal-header {
     padding: 1.5rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 0.06rem solid #eee;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1208,7 +1211,7 @@ label.popover-btn img {
     display: flex;
     gap: 0.75rem;
     justify-content: center;
-    border-top: 1px solid #eee;
+    border-top: 0.06rem solid #eee;
     flex-wrap: wrap;
 }
 
@@ -1217,7 +1220,7 @@ label.popover-btn img {
     background-color: #0066cc;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     font-size: 0.9rem;
     font-weight: 500;
     cursor: pointer;
@@ -1240,14 +1243,15 @@ label.popover-btn img {
    MOBILE-ONLY STYLING (max-width: 768px)
    ======================================== */
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 48rem) {
     .guidelines-links {
-        margin-left: 5px;
-        margin-bottom: 15px;
+        margin-left: 0.31rem;
+        margin-bottom: 2rem;
     }
 
     .guidelines-links p {
-        margin: 5px 0;
+        margin: 0.62rem 0;
+        text-overflow: ellipsis;
     }
 
     .popover .popover-content {
