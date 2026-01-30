@@ -38,6 +38,12 @@ h1 {
     margin: 0.5rem;
 }
 
+.start-here-badge h4 {
+    margin-top: 2rem;
+    margin-bottom: 0 !important;
+    text-align: center;
+}
+
 header { 
     display:flex; 
     gap:1rem; 
@@ -527,6 +533,7 @@ header {
     letter-spacing: 0.05rem;
     background: none;
     padding: 0;
+    text-align: center;
 }
 
 .primary-exam-btn {
@@ -546,6 +553,7 @@ header {
 
 .primary-exam-btn:hover {
     background-color: #1e6b2f;
+    color:#e9ffed !important;
     transform: translateY(-0.25rem);
     box-shadow: 0 0.75rem 2rem rgba(43, 138, 62, 0.5);
 }
@@ -960,6 +968,10 @@ label.popover-btn img {
     color: rgb(24, 37, 37);
     margin-bottom: 1rem;
     flex-wrap: wrap;
+}
+
+.title-prompt h1 {
+    margin: 1.5rem;
 }
 
 .title-prompt-exam h2 {
