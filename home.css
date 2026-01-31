@@ -39,7 +39,7 @@ h1 {
 }
 
 .start-here-badge h4 {
-    margin-top: 2rem;
+    margin-top: 0.5rem;
     margin-bottom: 0 !important;
     text-align: center;
 }
@@ -102,7 +102,8 @@ header {
 }
 
 .buttons-exam div a,
-.page-contents div a {
+.page-contents div a,
+.page-contents-under-sticky div a {
     place-items: center;
     border-radius: 1.0625rem;
     padding: 1rem 1rem;
@@ -471,7 +472,7 @@ header {
     width: 100%;
     padding: 2rem auto 2rem auto;
     row-gap: 2rem;
-    margin-top: 8rem;
+    margin-top: 10rem;
     flex-wrap: wrap;
 }
 
@@ -490,14 +491,17 @@ header {
     margin: auto 4rem auto 4rem;
 }
 
-.page-contents div a:hover {
+.page-contents div a:hover,
+.page-contents-under-sticky div a:hover {
+    background-color: #5a7fa8;
     color: black;
     transform: translateY(-0.125rem);
     box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
     transition: all 0.2s ease;
 }
 
-.page-contents img {
+.page-contents img,
+.page-contents-under-sticky img {
     max-height: 60vh;
     width: auto;
     object-fit: contain;
@@ -849,6 +853,10 @@ label.popover-btn img {
 
 .scores-table-action {
     text-align: center;
+    justify-items: center;
+    display: grid;
+    column-gap: 1rem;
+    row-gap: 2rem;
 }
 
 .scores-table-date {
@@ -956,6 +964,16 @@ label.popover-btn img {
     color: rgb(24, 37, 37);
 }
 
+.title-prompt.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+
 .title-prompt-exam {
     border-top: 0.06rem solid white;
     background-color: #6b8fba;
@@ -976,23 +994,6 @@ label.popover-btn img {
 
 .title-prompt-exam h2 {
     margin: 0;
-}
-
-.title-prompt-sticky {
-    border-top: 0.06rem solid white;
-    background-color: #6b8fba;
-    display: grid;
-    place-items: center;
-    text-align: center;
-    width: 100%;
-    color: rgb(24, 37, 37);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    padding: 1rem 0;
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
 }
 
 .title-with-info-popover {
@@ -1417,3 +1418,10 @@ label.popover-btn img {
         height: 100%;
         object-fit: contain;
     }
+
+    /* Mobile table styling */
+    table {
+        width: 100%;
+        margin: 1.25rem auto;
+    }
+}
