@@ -19,8 +19,8 @@
 audio {
     display: block;
     width: 100%;
-    margin-bottom: 1rem;
-    margin-top: 4rem;
+    margin: 2rem auto 1rem auto;
+    max-width: 20rem;
 }
 
 body {
@@ -218,12 +218,13 @@ header {
 
 .exam-container {
     position: relative;
-    width: 100%;
-    max-width: 37.5rem;
-    margin: 10rem auto auto auto;
+    width: calc(100% - 2rem);
+    max-width: 45rem;
+    margin: 10rem auto 1rem auto;
     overflow: visible;
     border: 0.06rem solid #ccc;
-    padding: 1.25rem;
+    padding: 0.25rem;
+    box-sizing: border-box;
 }
 
 .exam-details-modal {
@@ -380,6 +381,10 @@ header {
    OPTION BUTTON STYLES (Alphabetical)
    ======================================== */
 
+.options {
+    margin-top: 2rem;
+}
+
 .option-btn {
     display: block;
     width: 80%;
@@ -477,8 +482,9 @@ header {
 }
 
 .page-contents audio, .page-contents-card audio, .page-contents-under-sticky audio {
-    max-width: 30rem;
+    max-width: 15rem;
     width: 100%;
+    margin: 0 auto;
 }
 
 .page-contents div, .page-contents-card div, .page-contents-under-sticky div {
@@ -895,13 +901,15 @@ label.popover-btn img {
     max-width: 100%;
     padding: 1.25rem;
     box-sizing: border-box;
-    text-align: left;
+    text-align: center;
     margin-bottom: 1rem;
+    place-content: center;
 }
 
 .slide p {
     display: block;
     margin: 0.5rem 0;
+    place-content: center;
 }
 
 .slides-container {
