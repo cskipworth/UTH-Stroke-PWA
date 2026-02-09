@@ -1,11 +1,11 @@
 {
-  "name": "UTH Stroke PWA — Starter",
+  "name": "UTH Stroke PWA",
   "short_name": "UTH Stroke",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#3367D6",
-  "description": "A starter Progressive Web App for the UTH Stroke project.",
+  "description": "A Progressive Web App for the UTH Stroke project.",
   "icons": [
     {
       "src": "/icons/icon-192.svg",
