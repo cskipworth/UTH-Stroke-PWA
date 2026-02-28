@@ -77,12 +77,14 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 1.5rem;
     margin: 2rem auto;
-    font-size: 3rem;
+    font-size: clamp(1rem, 5vw, 4rem);
     font-weight: bold;
-    max-height: 100%;
+    max-width: 95vw;
+    width: 100%;
+    min-width: 0;
 }
 
 .buttons-exam {
@@ -755,11 +757,17 @@ tr:hover {
 }
 
 .popover .popover-content .big-phrases p {
-    padding: 1rem;
-    margin: 0.75rem 0;
+    padding: 0.25rem 0.5rem;
+    margin: 0.25rem 0;
     background-color: #f5f5f5;
     border-radius: 0.5rem;
     border-left: 0.25rem solid #5a7fa8;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    max-width: 100%;
+    min-width: 0;
 }
 
 .popover .popover-content img {
@@ -1416,8 +1424,7 @@ label.popover-btn img {
         max-width: 98vw;
         max-height: 95vh;
         width: 100%;
-        height: 100%;
-        overflow: hidden;
+        overflow: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1427,9 +1434,8 @@ label.popover-btn img {
 
     .popover .popover-content .big-phrases {
         max-width: 98vw;
-        max-height: calc(95vh - 2rem);
-        overflow: hidden;
         margin: 0;
+        padding-right: 0.5rem;
     }
 
     /* Portrait images - shrink minimally to fit without cutoff */
