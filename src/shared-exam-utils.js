@@ -11,7 +11,7 @@ const REQUIRED_EXAM_QUESTIONS = [
     { id: '1a', title: '1a. Level of consciousness', exam: 'SPA-NIHSS' },
     { id: '1b', title: '1b. Level of consciousness questions', exam: 'SPA-NIHSS' },
     { id: '1c', title: '1c. Level of consciousness questions', exam: 'SPA-NIHSS' },
-    { id: '2: ', title: '2. Best gaze', exam: 'SPA-NIHSS' },
+    { id: '2', title: '2. Best gaze', exam: 'SPA-NIHSS' },
     { id: '3', title: '3. Visual', exam: 'SPA-NIHSS' },
     { id: '4', title: '4. Facial palsy', exam: 'SPA-NIHSS' },
     { id: '5', title: '5a. Motor: left arm', exam: 'SPA-NIHSS' },

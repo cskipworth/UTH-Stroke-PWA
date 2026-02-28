@@ -115,7 +115,24 @@
         `;
 
         if (exam.answers && Object.keys(exam.answers).length > 0) {
-          Object.entries(exam.answers).forEach(([questionId, answer]) => {
+          // Define the canonical order of exam questions
+          const questionOrder = ['1a', '1b', '1c', '2', '3', '4', '5', '5b', '6a', '6b', '7', '8', '9', '10', '11', '12', '13', '14'];
+          
+          // Sort answers by the canonical question order
+          const sortedAnswers = [];
+          questionOrder.forEach(qId => {
+            if (exam.answers[qId]) {
+              sortedAnswers.push([qId, exam.answers[qId]]);
+            }
+          });
+          // Add any answers not in the canonical order
+          Object.entries(exam.answers).forEach(([qId, answer]) => {
+            if (!sortedAnswers.find(([id]) => id === qId)) {
+              sortedAnswers.push([qId, answer]);
+            }
+          });
+          
+          sortedAnswers.forEach(([questionId, answer]) => {
             const questionTitle = getQuestionTitle(questionId);
             let answerDetail = `<em>Answer: ${answer.text}</em>`;
             

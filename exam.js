@@ -460,14 +460,14 @@ function updateResultsBreakdownAlways() {
 
 /**
  * Define all required exam questions that must be answered before finalizing the exam
- * These are all questions with option buttons from NIHSS and Post-NIHSS exams
+ * These include all questions with option buttons from NIHSS and Post-NIHSS exams
  */
 const REQUIRED_EXAM_QUESTIONS = [
     // SPA-NIHSS.html questions
     { id: '1a', title: '1a. Level of consciousness', exam: 'SPA-NIHSS' },
     { id: '1b', title: '1b. Level of consciousness questions', exam: 'SPA-NIHSS' },
     { id: '1c', title: '1c. Level of consciousness questions', exam: 'SPA-NIHSS' },
-    { id: '2: ', title: '2. Best gaze', exam: 'SPA-NIHSS' },
+    { id: '2', title: '2. Best gaze', exam: 'SPA-NIHSS' },
     { id: '3', title: '3. Visual', exam: 'SPA-NIHSS' },
     { id: '4', title: '4. Facial palsy', exam: 'SPA-NIHSS' },
     { id: '5', title: '5a. Motor: left arm', exam: 'SPA-NIHSS' },
@@ -486,10 +486,35 @@ const REQUIRED_EXAM_QUESTIONS = [
 ];
 
 /**
- * Check if all required exam questions have been answered
+ * Check if all required NIHSS questions have been answered
+ * Only checks SPA-NIHSS questions for button enable/disable logic
  * @returns {Object} { allAnswered: boolean, missingQuestions: Array<{id, title, exam}> }
  */
 function checkAllQuestionsAnswered() {
+    const answers = getAnswersFromStorage();
+    const missingQuestions = [];
+    
+    // Only check SPA-NIHSS questions for the "Finalize Exam Details" button
+    const nihssQuestions = REQUIRED_EXAM_QUESTIONS.filter(q => q.exam === 'SPA-NIHSS');
+    
+    nihssQuestions.forEach(question => {
+        if (!answers[question.id]) {
+            missingQuestions.push(question);
+        }
+    });
+    
+    return {
+        allAnswered: missingQuestions.length === 0,
+        missingQuestions: missingQuestions,
+        allMissingQuestions: getAllMissingQuestions() // All missing questions for display
+    };
+}
+
+/**
+ * Get all missing questions (both NIHSS and Post-NIHSS) for display in missing entries
+ * @returns {Array<{id, title, exam}>}
+ */
+function getAllMissingQuestions() {
     const answers = getAnswersFromStorage();
     const missingQuestions = [];
     
@@ -499,45 +524,42 @@ function checkAllQuestionsAnswered() {
         }
     });
     
-    return {
-        allAnswered: missingQuestions.length === 0,
-        missingQuestions: missingQuestions
-    };
+    return missingQuestions;
 }
 
 /**
  * Update the missing entries display and button state
  */
 function updateMissingEntriesDisplay() {
-    const { allAnswered, missingQuestions } = checkAllQuestionsAnswered();
+    const { allAnswered, allMissingQuestions } = checkAllQuestionsAnswered();
     const finalizeBtn = document.querySelector('.complete-exam-btn');
     const missingEntriesDiv = document.querySelector('.missing-entries-container');
     const noticeMessage = document.querySelector('.button-notice-message');
     
     if (!finalizeBtn && !missingEntriesDiv && !noticeMessage) return;
     
-    // Update button state
+    // Update button state - only disabled if NIHSS questions are missing
     if (finalizeBtn) {
         finalizeBtn.disabled = !allAnswered;
         finalizeBtn.style.opacity = allAnswered ? '1' : '0.5';
         finalizeBtn.style.cursor = allAnswered ? 'pointer' : 'not-allowed';
     }
     
-    // Update notice message visibility
+    // Update notice message visibility - only show if NIHSS questions are missing
     if (noticeMessage) {
         noticeMessage.style.display = allAnswered ? 'none' : 'block';
     }
     
-    // Update missing entries display
+    // Update missing entries display - show ALL missing questions (both NIHSS and Post-NIHSS)
     if (missingEntriesDiv) {
-        if (allAnswered) {
+        if (allMissingQuestions.length === 0) {
             missingEntriesDiv.style.display = 'none';
         } else {
             missingEntriesDiv.style.display = 'block';
             
-            // Build the missing entries list with links
+            // Build the missing entries list with links for all missing questions
             let html = '<h3>Missing Entries</h3><ul>';
-            missingQuestions.forEach(question => {
+            allMissingQuestions.forEach(question => {
                 const pageFile = question.exam === 'SPA-NIHSS' ? 'SPA-NIHSS.html' : 'SPA-Post-NIHSS.html';
                 const questionId = question.id;
                 html += `<li><a href="${pageFile}#${questionId}" class="missing-entry-link" data-question-id="${questionId}" data-exam="${question.exam}">${question.title}</a></li>`;
