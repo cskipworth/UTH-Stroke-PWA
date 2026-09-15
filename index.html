@@ -17,6 +17,19 @@
     </div>
 
     <div class="page-contents">
+
+      <div id="termsPopupOverlay" class="terms-popup-overlay">
+        <div class="terms-popup-content">
+          <h2>Terms of Use</h2>
+          <div class="terms-popup-text">
+            <p>Neuro Translation Tool is a communication and educational tool for healthcare professionals. It does not replace clinical judgment, professional training, or certified medical interpretation services. You are responsible for independently evaluating your patient and making all clinical decisions. Although our clinical content and translations are reviewed by qualified healthcare and language professionals whenever feasible, errors, omissions, translation differences, or technical issues may occur.</p>
+            <p>Do not enter protected health information (PHI), such as patient names, medical record numbers, or dates of birth, into the application. To the fullest extent permitted by law, Neuro Translation Tool and its developers cannot be held responsible for clinical decisions, actions, or patient outcomes resulting from use of the Application.</p>
+            <p>By using Neuro Translation, you acknowledge that you have read and agree to our Terms and Conditions.</p>
+            <button id="acceptTermsBtn" class="close-popup-btn">Accept</button>
+          </div>
+        </div>
+      </div>
+
       <div class="start-here-badge">
         <h4>SELECT A LANGUAGE TO BEGIN</h4>
       </div>
@@ -50,7 +63,8 @@
         <p>More</p>
       </a>
     </div>
-    <script src="/src/audio-manager.js"></script>
-    <script type="module" src="/src/main.js"></script>
+    <script src="./src/popup.js"></script>
+    <script src="./src/audio-manager.js"></script>
+    <script type="module" src="./src/main.js"></script>
   </body>
 </html>

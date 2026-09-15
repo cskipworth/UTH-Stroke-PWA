@@ -868,6 +868,80 @@ label.popover-btn img {
 }
 
 /* ========================================
+   TERMS POPUP STYLES (Alphabetical)
+   ======================================== */
+
+/* Full-screen dark overlay */
+.terms-popup-overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+  z-index: 9999; /* Ensures it sits on top of everything */
+  justify-content: center;
+  align-items: center;
+}
+
+/* The Popup Card */
+.terms-popup-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 42rem;
+  width: min(100%, 42rem);
+  max-height: 80vh;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  box-sizing: border-box;
+}
+
+.terms-popup-content h2 {
+  margin: 0 0 0.75rem;
+  text-align: center;
+  width: 100%;
+}
+
+.terms-popup-text {
+  width: 100%;
+  max-width: 100%;
+  max-height: 50vh;
+  overflow-y: auto;
+  text-align: left;
+  padding: 0 0.5rem 0 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.terms-popup-text p {
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+/* Close Button */
+.close-popup-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.close-popup-btn:hover {
+  background-color: #0056b3;
+}
+
+/* ========================================
    RESULTS BREAKDOWN STYLES (Alphabetical)
    ======================================== */
 
