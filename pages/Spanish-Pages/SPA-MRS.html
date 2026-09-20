@@ -9,6 +9,59 @@
     <link rel="stylesheet" href="../../home.css">
     <link rel="manifest" href="../../manifest.json" />
     <link rel="icon" href="../../icons/icon.svg" />
+    <style>
+        .quiz-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        .question {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #333333;
+        }
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .option-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-align: left;
+            transition: background-color 0.2s;
+        }
+        .option-btn:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #28a745;
+            text-align: center;
+        }
+        .restart-btn {
+            display: block;
+            margin: 20px auto 0 auto;
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .restart-btn:hover {
+            background-color: #5a6268;
+        }
+    </style>
 
   </head>
 
@@ -19,8 +72,10 @@
     </div>
 
     <div class="page-contents">
-      <p>This page is under construction.</p>
-      <a href="#" onclick="history.back(); return false;">Go back.</a>
+      <div class="quiz-container" id="quiz">
+        <!-- Content will be dynamically injected by JavaScript -->
+      </div>
+      <p><strong>Important Notice:</strong> This page is under construction. <br> It is not yet connected to the rest of the exam. <br> Please manually insert your modified Rankin Scale result while finalizing your exam details.</p>
     </div>
 
     <div class="exam-nav-links">
@@ -47,5 +102,6 @@
       </a>
     </div>
     <script type="module" src="/src/main.js"></script>
+    <script src="../../src/mrs-branching-quiz.js"></script>
   </body>
 </html>

@@ -170,7 +170,15 @@ function renderMetadataForm(metadata) {
 
     <div class="metadata-field">
       <label>Modified Rankin Scale:</label>
-      <input type="text" class="editable-field" id="modifiedRankin" value="${metadata.modifiedRankin || ''}" placeholder="(To be developed)">
+        <select class="editable-field" id="modifiedRankin">
+          <option value="0 (No Symptoms at All)" ${metadata.modifiedRankin === '0 (No Symptoms At All)' ? 'selected' : ''}>0 (No Symptoms At All)</option>
+          <option value="1 (No Significant Disability)" ${metadata.modifiedRankin === '1 (No Significant Disability)' ? 'selected' : ''}>1 (No Significant Disability)</option>
+          <option value="2 (Slight Disability)" ${metadata.modifiedRankin === '2 (Slight Disability)' ? 'selected' : ''}>2 (Slight Disability)</option>
+          <option value="3 (Moderate Disability)" ${metadata.modifiedRankin === '3 (Moderate Disability)' ? 'selected' : ''}>3 (Moderate Disability)</option>
+          <option value="4 (Moderately Severe Disability)" ${metadata.modifiedRankin === '4 (Moderately Severe Disability)' ? 'selected' : ''}>4 (Moderately Severe Disability)</option>
+          <option value="5 (Severe Disability)" ${metadata.modifiedRankin === '5 (Severe Disability)' ? 'selected' : ''}>5 (Severe Disability)</option>
+          <option value="6 (Dead)" ${metadata.modifiedRankin === '6 (Dead)' ? 'selected' : ''}>6 (Dead)</option>
+        </select>
     </div>
 
     <div class="metadata-field">
