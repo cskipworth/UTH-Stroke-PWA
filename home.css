@@ -261,7 +261,7 @@ header {
 }
 
 .exam-nav-links {
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     padding: 2rem;
@@ -271,6 +271,10 @@ header {
 }
 
 .exam-nav-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     padding: 0.75rem 1.5rem;
     background-color: #37547a;
     color: white;
