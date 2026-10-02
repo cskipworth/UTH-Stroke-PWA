@@ -61,7 +61,7 @@ const quizData = {
         isResult: true
     },
     "result-6": {
-        text: "MRS Score: 6 - Patient is dead.",
+        text: "MRS Score: 6 - The patient is dead.",
         isResult: true
     }
 };
