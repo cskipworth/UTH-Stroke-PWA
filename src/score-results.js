@@ -184,13 +184,15 @@ function renderMetadataForm(metadata) {
     <div class="metadata-field">
       <label>Interval:</label>
       <select class="editable-field" id="interval">
-        <option value="0 (No Symptoms)" ${metadata.interval === '0 (No Symptoms)' ? 'selected' : ''}>0 (No Symptoms)</option>
-        <option value="1 (No Significant Disability)" ${metadata.interval === '1 (No Significant Disability)' ? 'selected' : ''}>1 (No Significant Disability)</option>
-        <option value="2 (Slight Disability)" ${metadata.interval === '2 (Slight Disability)' ? 'selected' : ''}>2 (Slight Disability)</option>
-        <option value="3 (Moderate Disability)" ${metadata.interval === '3 (Moderate Disability)' ? 'selected' : ''}>3 (Moderate Disability)</option>
-        <option value="4 (Moderately Severe Disability)" ${metadata.interval === '4 (Moderately Severe Disability)' ? 'selected' : ''}>4 (Moderately Severe Disability)</option>
-        <option value="5 (Severe Disability)" ${metadata.interval === '5 (Severe Disability)' ? 'selected' : ''}>5 (Severe Disability)</option>
-        <option value="6 (Death)" ${metadata.interval === '6 (Death)' ? 'selected' : ''}>6 (Death)</option>
+        <option value="Outside hospital" ${metadata.interval === 'Outside hospital' ? 'selected' : ''}>Outside hospital</option>
+        <option value="EMS" ${metadata.interval === 'EMS' ? 'selected' : ''}>EMS</option>
+        <option value="Mobile stroke unit" ${metadata.interval === 'Mobile stroke unit' ? 'selected' : ''}>Mobile stroke unit</option>
+        <option value="Emergency Room" ${metadata.interval === 'Emergency Room' ? 'selected' : ''}>Emergency Room</option>
+        <option value="Post IVT" ${metadata.interval === 'Post IVT' ? 'selected' : ''}>Post IVT</option>
+        <option value="Angiosuite" ${metadata.interval === 'Angiosuite' ? 'selected' : ''}>Angiosuite</option>
+        <option value="Post IAT" ${metadata.interval === 'Post IAT' ? 'selected' : ''}>Post IAT</option>
+        <option value="24 Hrs Post IVT" ${metadata.interval === '24 Hrs Post IVT' ? 'selected' : ''}>24 Hrs Post IVT</option>
+        <option value="24 Hrs Post IAT" ${metadata.interval === '24 Hrs Post IAT' ? 'selected' : ''}>24 Hrs Post IAT</option>
       </select>
     </div>
 
