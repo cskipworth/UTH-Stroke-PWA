@@ -246,6 +246,7 @@ function renderMetadataForm(metadata) {
     <div class="metadata-field">
       <label>Interval:</label>
       <select class="editable-field" id="interval">
+        <option value="" ${!metadata.interval ? 'selected disabled hidden' : ''}>Choose a score</option>
         <option value="Outside hospital" ${metadata.interval === 'Outside hospital' ? 'selected' : ''}>Outside hospital</option>
         <option value="EMS" ${metadata.interval === 'EMS' ? 'selected' : ''}>EMS</option>
         <option value="Mobile stroke unit" ${metadata.interval === 'Mobile stroke unit' ? 'selected' : ''}>Mobile stroke unit</option>

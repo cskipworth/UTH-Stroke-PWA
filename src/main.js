@@ -1,3 +1,5 @@
+import { seedSampleExamData } from './sample-seed.js';
+
 // Register the service worker and update the UI with status.
 const statusEl = document.getElementById('sw-status');
 
@@ -38,3 +40,5 @@ function handleSwipe() {
     history.back();
   }
 }
+
+document.addEventListener('DOMContentLoaded', seedSampleExamData);
