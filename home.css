@@ -1030,7 +1030,7 @@ label.popover-btn img {
 .slide {
     width: 100%;
     max-width: 100%;
-    padding: 1.25rem;
+    padding: 1.25rem 0;
     box-sizing: border-box;
     text-align: center;
     margin-bottom: 1rem;
