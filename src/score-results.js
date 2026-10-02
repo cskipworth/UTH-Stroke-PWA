@@ -129,6 +129,74 @@ function saveExamMetadata(examID, metadata) {
 }
 
 /**
+ * Get the current Modified Rankin value from the latest exam history
+ */
+function getCurrentModifiedRankinValue() {
+  const persisted = (() => {
+    try {
+      return localStorage.getItem('selectedModifiedRankin');
+    } catch (e) {
+      return null;
+    }
+  })();
+
+  if (persisted) {
+    const normalized = normalizeModifiedRankinValue(persisted);
+    return normalized || persisted;
+  }
+
+  const examHistory = getExamHistory();
+  const latestExam = examHistory[examHistory.length - 1];
+  return latestExam ? latestExam.modifiedRankin : null;
+}
+
+/**
+ * Normalize the Modified Rankin value for consistent comparison
+ */
+function normalizeModifiedRankinValue(value) {
+  if (!value || typeof value !== 'string') {
+    return null;
+  }
+
+  const normalizedValue = value.trim();
+  if (!normalizedValue) {
+    return null;
+  }
+
+  const rankinMapping = {
+    '0 (No Symptoms at All)': '0 (No Symptoms At All)',
+    '0 (No Symptoms At All)': '0 (No Symptoms At All)',
+    '1 (No Significant Disability)': '1 (No Significant Disability)',
+    '2 (Slight Disability)': '2 (Slight Disability)',
+    '3 (Moderate Disability)': '3 (Moderate Disability)',
+    '4 (Moderately Severe Disability)': '4 (Moderately Severe Disability)',
+    '5 (Severe Disability)': '5 (Severe Disability)',
+    '6 (Dead)': '6 (Dead)'
+  };
+
+  return rankinMapping[normalizedValue] || normalizedValue;
+}
+
+/**
+ * Get options for the Modified Rankin Scale dropdown
+ */
+function getMetadataModifiedRankinOptions(metadata) {
+  const selectedValue = metadata.modifiedRankin || getCurrentModifiedRankinValue() || '';
+  const normalized = normalizeModifiedRankinValue(selectedValue);
+
+  return `
+    <option value="" ${!normalized ? 'selected disabled hidden' : ''}>Choose a score</option>
+    <option value="0 (No Symptoms At All)" ${normalized === '0 (No Symptoms At All)' ? 'selected' : ''}>0 (No Symptoms At All)</option>
+    <option value="1 (No Significant Disability)" ${normalized === '1 (No Significant Disability)' ? 'selected' : ''}>1 (No Significant Disability)</option>
+    <option value="2 (Slight Disability)" ${normalized === '2 (Slight Disability)' ? 'selected' : ''}>2 (Slight Disability)</option>
+    <option value="3 (Moderate Disability)" ${normalized === '3 (Moderate Disability)' ? 'selected' : ''}>3 (Moderate Disability)</option>
+    <option value="4 (Moderately Severe Disability)" ${normalized === '4 (Moderately Severe Disability)' ? 'selected' : ''}>4 (Moderately Severe Disability)</option>
+    <option value="5 (Severe Disability)" ${normalized === '5 (Severe Disability)' ? 'selected' : ''}>5 (Severe Disability)</option>
+    <option value="6 (Dead)" ${normalized === '6 (Dead)' ? 'selected' : ''}>6 (Dead)</option>
+  `;
+}
+
+/**
  * Render the editable metadata form
  */
 function renderMetadataForm(metadata) {
@@ -170,15 +238,9 @@ function renderMetadataForm(metadata) {
 
     <div class="metadata-field">
       <label>Modified Rankin Scale:</label>
-        <select class="editable-field" id="modifiedRankin">
-          <option value="0 (No Symptoms at All)" ${metadata.modifiedRankin === '0 (No Symptoms At All)' ? 'selected' : ''}>0 (No Symptoms At All)</option>
-          <option value="1 (No Significant Disability)" ${metadata.modifiedRankin === '1 (No Significant Disability)' ? 'selected' : ''}>1 (No Significant Disability)</option>
-          <option value="2 (Slight Disability)" ${metadata.modifiedRankin === '2 (Slight Disability)' ? 'selected' : ''}>2 (Slight Disability)</option>
-          <option value="3 (Moderate Disability)" ${metadata.modifiedRankin === '3 (Moderate Disability)' ? 'selected' : ''}>3 (Moderate Disability)</option>
-          <option value="4 (Moderately Severe Disability)" ${metadata.modifiedRankin === '4 (Moderately Severe Disability)' ? 'selected' : ''}>4 (Moderately Severe Disability)</option>
-          <option value="5 (Severe Disability)" ${metadata.modifiedRankin === '5 (Severe Disability)' ? 'selected' : ''}>5 (Severe Disability)</option>
-          <option value="6 (Dead)" ${metadata.modifiedRankin === '6 (Dead)' ? 'selected' : ''}>6 (Dead)</option>
-        </select>
+      <select class="editable-field" id="modifiedRankin" ${!metadata.modifiedRankin ? 'required' : ''}>
+        ${getMetadataModifiedRankinOptions(metadata)}
+      </select>
     </div>
 
     <div class="metadata-field">

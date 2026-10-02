@@ -72,10 +72,14 @@
     </div>
 
     <div class="page-contents">
+      <label>Select Manually:</label>
+      <div id="mrs-dropdown-container"></div>
+      <p><strong>OR</strong></p>
+      <break></break>
+      <label>Take the Quiz:</label>
       <div class="quiz-container" id="quiz">
         <!-- Content will be dynamically injected by JavaScript -->
       </div>
-      <p><strong>Important Notice:</strong> This page is under construction. <br> It is not yet connected to the rest of the exam. <br> Please manually insert your modified Rankin Scale result while finalizing your exam details.</p>
     </div>
 
     <div class="exam-nav-links">
@@ -102,6 +106,12 @@
       </a>
     </div>
     <script type="module" src="/src/main.js"></script>
+    <script src="../../src/mrs-dropdown.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        renderMRSDropdown('mrs-dropdown-container', getCurrentMetadataModifiedRankinValue());
+      });
+    </script>
     <script src="../../src/mrs-branching-quiz.js"></script>
   </body>
 </html>
