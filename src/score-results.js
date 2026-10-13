@@ -165,7 +165,7 @@ function normalizeModifiedRankinValue(value) {
 
   const rankinMapping = {
     '0 (No Symptoms at All)': '0 (No Symptoms At All)',
-    '0 (No Symptoms At All)': '0 (No Symptoms At All)',
+    '0 (No Symptoms at All)': '0 (No Symptoms At All)',
     '1 (No Significant Disability)': '1 (No Significant Disability)',
     '2 (Slight Disability)': '2 (Slight Disability)',
     '3 (Moderate Disability)': '3 (Moderate Disability)',

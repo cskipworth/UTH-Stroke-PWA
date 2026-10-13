@@ -70,7 +70,7 @@ const REQUIRED_EXAM_QUESTIONS = [
     { id: '2', title: '2. Best gaze', exam: 'SPA-NIHSS' },
     { id: '3', title: '3. Visual', exam: 'SPA-NIHSS' },
     { id: '4', title: '4. Facial palsy', exam: 'SPA-NIHSS' },
-    { id: '5', title: '5a. Motor: left arm', exam: 'SPA-NIHSS' },
+    { id: '5a', title: '5a. Motor: left arm', exam: 'SPA-NIHSS' },
     { id: '5b', title: '5b. Motor: right arm', exam: 'SPA-NIHSS' },
     { id: '6a', title: '6a. Motor: left leg', exam: 'SPA-NIHSS' },
     { id: '6b', title: '6b. Motor: right leg', exam: 'SPA-NIHSS' },

@@ -47,14 +47,6 @@ export function seedSampleExamData() {
         { points: 2, text: '2. Partial paralysis (total or near-total paralysis of lower face).' },
         { points: 3, text: '3. Complete paralysis of one or both sides (absence of facial movement in the upper and lower face).' }
       ],
-      '5': [
-        { points: 0, text: '0. No drift; limb holds 90 (or 45) degrees for full 10 seconds.' },
-        { points: 1, text: '1. Drift; limb holds 90 (or 45) degrees, but drifts down before full 10 seconds; does not hit bed or other support.' },
-        { points: 2, text: '2. Some effort against gravity; limb cannot get to or maintain (if cued) 90 (or 45) degrees, drifts down to bed, but has some effort against gravity.' },
-        { points: 3, text: '3. No effort against gravity; limb falls.' },
-        { points: 4, text: '4. No movement.' },
-        { points: 'UN', text: 'UN. Amputation or joint fusion, explain:' }
-      ],
       '5a': [
         { points: 0, text: '0. No drift; limb holds 90 (or 45) degrees for full 10 seconds.' },
         { points: 1, text: '1. Drift; limb holds 90 (or 45) degrees, but drifts down before full 10 seconds; does not hit bed or other support.' },
