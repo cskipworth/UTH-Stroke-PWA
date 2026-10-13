@@ -4,6 +4,62 @@
  */
 
 /**
+ * Sort question IDs by numeric prefix first, then by any trailing alpha suffix.
+ * Examples:
+ *   1, 1a, 2b, 5a, 5c, 8a, 8b, 9a
+ */
+function parseQuestionSortKey(questionId) {
+    const raw = String(questionId || '').trim();
+    const match = raw.match(/(\d+)([A-Za-z]*)/);
+
+    if (!match) {
+        return {
+            number: Number.MAX_SAFE_INTEGER,
+            suffix: raw,
+            original: raw
+        };
+    }
+
+    return {
+        number: Number(match[1]),
+        suffix: match[2] || '',
+        original: raw
+    };
+}
+
+function compareQuestionIds(a, b) {
+    const aKey = parseQuestionSortKey(a);
+    const bKey = parseQuestionSortKey(b);
+
+    if (aKey.number !== bKey.number) {
+        return aKey.number - bKey.number;
+    }
+
+    if (aKey.suffix === bKey.suffix) {
+        return aKey.original.localeCompare(bKey.original, undefined, { numeric: true, sensitivity: 'base' });
+    }
+
+    if (aKey.suffix === '') return -1;
+    if (bKey.suffix === '') return 1;
+
+    return aKey.suffix.localeCompare(bKey.suffix, undefined, { numeric: true, sensitivity: 'base' });
+}
+
+function sortQuestionEntries(entries) {
+    return [...entries].sort(([a], [b]) => compareQuestionIds(a, b));
+}
+
+function getOrderedQuestionEntries(answers) {
+    if (!answers || typeof answers !== 'object') return [];
+    return sortQuestionEntries(Object.entries(answers));
+}
+
+function sortAnswerObject(answers) {
+    if (!answers || typeof answers !== 'object') return {};
+    return Object.fromEntries(getOrderedQuestionEntries(answers));
+}
+
+/**
  * Define all exam questions for title lookup
  */
 const REQUIRED_EXAM_QUESTIONS = [
@@ -88,7 +144,8 @@ function generateShareText(exam, metadata = {}) {
     
     text += 'Answers Breakdown:\n';
     const answers = exam.answers || {};
-    Object.entries(answers).forEach(([questionId, answer]) => {
+    const orderedEntries = getOrderedQuestionEntries(answers);
+    orderedEntries.forEach(([questionId, answer]) => {
         if (answer.text && answer.points !== undefined) {
             const questionTitle = getQuestionTitle(questionId);
             text += `${questionTitle}\n`;
@@ -135,3 +192,6 @@ window.copyToClipboard = copyToClipboard;
 window.downloadTextAsFile = downloadTextAsFile;
 window.formatExamNameForDisplay = formatExamNameForDisplay;
 window.formatDateForDisplay = formatDateForDisplay;
+window.getOrderedQuestionEntries = getOrderedQuestionEntries;
+window.sortAnswerObject = sortAnswerObject;
+window.compareQuestionIds = compareQuestionIds;

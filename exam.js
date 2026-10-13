@@ -68,7 +68,9 @@ function saveAnswerToStorage(questionId, points, answerText, examName = currentE
         } else if (existingUnText) {
             answers[questionId]['un-reason-text'] = existingUnText;
         }
-        localStorage.setItem(EXAM_ANSWERS_KEY, JSON.stringify(answers));
+
+        const orderedAnswers = sortAnswerObjectForStorage(answers);
+        localStorage.setItem(EXAM_ANSWERS_KEY, JSON.stringify(orderedAnswers));
     } catch (e) {
         console.error('Failed to save answer to localStorage:', e);
     }
@@ -80,7 +82,8 @@ function saveAnswerToStorage(questionId, points, answerText, examName = currentE
  */
 function getAnswersFromStorage() {
     try {
-        return JSON.parse(localStorage.getItem(EXAM_ANSWERS_KEY)) || {};
+        const answers = JSON.parse(localStorage.getItem(EXAM_ANSWERS_KEY)) || {};
+        return sortAnswerObjectForStorage(answers);
     } catch (e) {
         console.error('Failed to retrieve answers from localStorage:', e);
         return {};
@@ -470,7 +473,7 @@ const REQUIRED_EXAM_QUESTIONS = [
     { id: '2', title: '2. Best gaze', exam: 'SPA-NIHSS' },
     { id: '3', title: '3. Visual', exam: 'SPA-NIHSS' },
     { id: '4', title: '4. Facial palsy', exam: 'SPA-NIHSS' },
-    { id: '5', title: '5a. Motor: left arm', exam: 'SPA-NIHSS' },
+    { id: '5a', title: '5a. Motor: left arm', exam: 'SPA-NIHSS' },
     { id: '5b', title: '5b. Motor: right arm', exam: 'SPA-NIHSS' },
     { id: '6a', title: '6a. Motor: left leg', exam: 'SPA-NIHSS' },
     { id: '6b', title: '6b. Motor: right leg', exam: 'SPA-NIHSS' },
@@ -661,6 +664,61 @@ function restorePreviousAnswers() {
     
     // Recalculate total score from restored answers
     totalScore = Object.values(quizScores).reduce((sum, points) => sum + points, 0);
+}
+
+// Sort question IDs by numeric prefix first, then any trailing alpha suffix.
+function parseQuestionSortKey(questionId) {
+    const raw = String(questionId || '').trim();
+    const match = raw.match(/(\d+)([A-Za-z]*)/);
+
+    if (!match) {
+        return {
+            number: Number.MAX_SAFE_INTEGER,
+            suffix: raw,
+            original: raw
+        };
+    }
+
+    return {
+        number: Number(match[1]),
+        suffix: match[2] || '',
+        original: raw
+    };
+}
+
+function compareQuestionIds(a, b) {
+    const aKey = parseQuestionSortKey(a);
+    const bKey = parseQuestionSortKey(b);
+
+    if (aKey.number !== bKey.number) {
+        return aKey.number - bKey.number;
+    }
+
+    if (aKey.suffix === bKey.suffix) {
+        return aKey.original.localeCompare(bKey.original, undefined, { numeric: true, sensitivity: 'base' });
+    }
+
+    if (aKey.suffix === '') return -1;
+    if (bKey.suffix === '') return 1;
+
+    return aKey.suffix.localeCompare(bKey.suffix, undefined, { numeric: true, sensitivity: 'base' });
+}
+
+function sortQuestionEntries(entries) {
+    return [...entries].sort(([a], [b]) => compareQuestionIds(a, b));
+}
+
+function sortAnswerObjectForStorage(answers) {
+    if (!answers || typeof answers !== 'object') {
+        return {};
+    }
+
+    return Object.fromEntries(sortQuestionEntries(Object.entries(answers)));
+}
+
+function getOrderedQuestionEntries(answers) {
+    if (!answers || typeof answers !== 'object') return [];
+    return sortQuestionEntries(Object.entries(answers));
 }
 
 // Initialize listeners and UI
